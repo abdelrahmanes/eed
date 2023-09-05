@@ -83,7 +83,7 @@ function FAQ() {
                             <Grid.Col span={12} md={6} className="p-0">
                               <img
                                 src={image}
-                                className="object-cover h-auto mx-auto lg:ml-auto lg:mr-0 lg:h-96"
+                                className="object-cover h-auto mx-auto lg:mr-auto lg:ml-0 lg:h-96"
                               />
                             </Grid.Col>
                             <Grid.Col
