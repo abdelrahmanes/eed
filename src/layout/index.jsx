@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 import ScrollToTop from "./ScrollToTop";
-import Footer from "./footer";
-import Navbar from "./navbar";
 
 function Layout({ children }) {
   return (
