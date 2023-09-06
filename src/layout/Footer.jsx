@@ -5,7 +5,7 @@ import navigations from "../staticData/navigations";
 
 function Footer() {
   return (
-    <footer className="bg-white bg-center bg-no-repeat bg-cover dark:bg-gray-900 bg-footer-texture px-auto">
+    <footer className="bg-white bg-center bg-no-repeat bg-cover bg-footer-texture px-auto">
       <div className="w-full p-4 py-6 mx-auto max-w-screen-2xl lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -16,10 +16,10 @@ function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-white uppercase ">
                 Quick Links
               </h2>
-              <ul className="font-thin text-gray-300 dark:text-gray-400 ">
+              <ul className="font-thin text-gray-300 ">
                 {navigations.map(({ id, path, role, subLinks, title }) => {
                   return (
                     <NavbarLink
@@ -36,10 +36,10 @@ function Footer() {
             </div>
 
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-white uppercase ">
                 Contact information
               </h2>
-              <ul className="font-thin text-gray-300 dark:text-gray-400">
+              <ul className="font-thin text-gray-300 ">
                 <li className="mb-4">
                   <a
                     href="https://www.azhar.eg/magmaa/acc"
@@ -54,9 +54,9 @@ function Footer() {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-500 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr className="my-6 border-gray-500 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-200 sm:text-center dark:text-gray-400">
+          <span className="text-sm text-gray-200 sm:text-center ">
             © 2023
             <a
               href="https://www.facebook.com/EgyptianEngineeringDay/"
@@ -70,7 +70,7 @@ function Footer() {
             <a
               href="https://www.facebook.com/EgyptianEngineeringDay/"
               target="_blank"
-              className="text-gray-200 hover:text-white dark:hover:text-white"
+              className="text-gray-200 hover:text-white "
               rel="noreferrer"
             >
               <svg
@@ -90,7 +90,7 @@ function Footer() {
 
             <a
               href="https://twitter.com/EEDNews"
-              className="text-gray-200 hover:text-white dark:hover:text-white"
+              className="text-gray-200 hover:text-white "
               target="_blank"
               rel="noreferrer"
             >
@@ -109,10 +109,7 @@ function Footer() {
               <span className="sr-only">Twitter page</span>
             </a>
 
-            <a
-              href="#"
-              className="text-gray-200 hover:text-white dark:hover:text-white"
-            >
+            <a href="#" className="text-gray-200 hover:text-white ">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"

@@ -24,7 +24,7 @@ function Navbar() {
     <nav
       className={`fixed left-0 z-20 w-full ${
         isScrolling ? "!bg-white" : "!bg-transparent "
-      }  dark:bg-gray-900 -top-10 `}
+      }   -top-10 `}
     >
       <div className="flex items-center justify-between p-4 mx-auto flex-nowrap max-w-screen-2xl">
         {/* logo */}
@@ -40,7 +40,7 @@ function Navbar() {
         <button
           data-collapse-toggle="navbar-sticky"
           type="button"
-          className={`inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-white rounded-lg md:hidden hover:bg-primary hover:!text-white focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className={`inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-white rounded-lg md:hidden hover:bg-primary hover:!text-white focus:outline-none focus:ring-2 focus:ring-gray-200 "
           aria-controls="navbar-sticky ${
             isScrolling
               ? "!text-black hover:text-white !border-black"
@@ -70,7 +70,7 @@ function Navbar() {
           </svg>
         </button>
         <ul
-          className={`fixed z-[99999999999999999999999] flex flex-col gap-4  mt-4 font-medium text-left bg-white  border-gray-200 rounded-md left-1 right-1 top-20 overflow-hidden md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 transition-all duration-150 ${
+          className={`fixed z-[99999999999999999999999] flex flex-col gap-4  mt-4 font-medium text-left bg-white  border-gray-200 rounded-md left-1 right-1 top-20 overflow-hidden md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white  transition-all duration-150 ${
             active
               ? `h-[320px] p-4
               border`
@@ -128,7 +128,7 @@ function Navbar() {
           id="navbar-sticky"
         >
           <ul
-            className={`flex flex-col p-4 mt-4 font-medium border border-gray-100 md:p-0 roundedLg md:flex-row md:space-x-4 lg:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 `}
+            className={`flex flex-col p-4 mt-4 font-medium border border-gray-100 md:p-0 roundedLg md:flex-row md:space-x-4 lg:space-x-8 md:mt-0 md:border-0  `}
           >
             {navigations.map(({ id, path, role, subLinks, title }) => {
               return (
