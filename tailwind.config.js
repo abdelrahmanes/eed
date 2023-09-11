@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         primary: "#e2a202",
+        primaryHover: "#e2a20999",
       },
       transitionProperty: {
         height: "height",
