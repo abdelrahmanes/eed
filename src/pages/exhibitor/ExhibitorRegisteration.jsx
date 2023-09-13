@@ -1,10 +1,30 @@
 import { Stepper } from "@mantine/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SubPageHero from "../../components/SubPageHero";
 import Layout from "../../layout";
+import { GetProjectData } from "../../services/project";
 import CompetitionDetails from "./sections/CompetitionDetails";
 function ExhibitorRegisteration() {
   const [active, setActive] = useState(0);
+  const [data, setData] = useState([]);
+  const [requestBody, setRequestBody] = useState({});
+  const { competitions } = data;
+
+  useEffect(() => {
+    GetProjectData()
+      .then((res) => {
+        if (data.length === 0) setData(res);
+      })
+      .catch((err) => console.log(err));
+  }, [data]);
+
+  const handleSubmit = (stepData) => {
+    setRequestBody((prev) => ({
+      ...prev,
+      ...stepData,
+    }));
+  };
+  console.log({ requestBody });
   return (
     <Layout>
       <SubPageHero title={"Exhibitor Regestration"} />
@@ -42,7 +62,12 @@ function ExhibitorRegisteration() {
           }
           iconPosition="left"
         >
-          <CompetitionDetails setActive={setActive} active={active} />
+          <CompetitionDetails
+            setActive={setActive}
+            active={active}
+            data={competitions}
+            getData={handleSubmit}
+          />
         </Stepper.Step>
         <Stepper.Step
           description="Competition Details"
