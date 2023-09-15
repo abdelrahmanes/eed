@@ -5,11 +5,28 @@ import * as yup from "yup";
 import { useRef } from "react";
 import SelectComponent from "../../../components/SelectComponent";
 import StepButtons from "../../../components/StepButtons";
+import { TextInput } from "@mantine/core";
 const schema = yup.object({
   city_id: yup.string().required("please choose city"),
-  university_id: yup.string().required("please choose university"),
-  department_id: yup.string().required("please choose department"),
-  college_id: yup.string().required("please choose college"),
+  affiliation_type: yup.string().required("Please Choose one"),
+  school_name: yup
+    .string()
+    .ensure()
+    .when("affiliation_type", {
+      is: "school",
+      then: () => yup.string().required("School name is required"),
+      otherwise: () => yup.string().notRequired(),
+    }),
+  university_id: yup
+    .string()
+    .ensure()
+    .when("affiliation_type", {
+      is: "university",
+      then: () => yup.string().required("Please choose university"),
+      otherwise: () => yup.string().notRequired(),
+    }),
+  department_id: yup.string(),
+  college_id: yup.string(),
 });
 function EducationDetails({ data, active, setActive, getData }) {
   const savedData = JSON.parse(localStorage.getItem("data"));
@@ -21,9 +38,11 @@ function EducationDetails({ data, active, setActive, getData }) {
     setValue,
     watch,
     trigger,
+    setError,
   } = useForm({
     defaultValues: {
       city_id: +savedData.city_id || "",
+      affiliation_type: +savedData.affiliation_type || "",
       university_id: +savedData.university_id || "",
       department_id: +savedData.department_id || "",
       college_id: +savedData.college_id || "",
@@ -42,6 +61,9 @@ function EducationDetails({ data, active, setActive, getData }) {
   });
 
   const selectedCity = watch("city_id");
+  const selectedAfiliation = watch("affiliation_type");
+  // const selectedCity = watch("city_id");
+  // const selectedCity = watch("city_id");
 
   const universities = data.cities
     ?.find((target) => {
@@ -69,6 +91,7 @@ function EducationDetails({ data, active, setActive, getData }) {
   const universityRef = useRef();
   const collegeRef = useRef();
   const departmentRef = useRef();
+  const affliationtRef = useRef();
   return (
     <StepBoxWrapper title={"Education Details"}>
       <form
@@ -91,46 +114,82 @@ function EducationDetails({ data, active, setActive, getData }) {
         />
         <SelectComponent
           register={register}
-          ref={universityRef}
-          name="university_id"
-          value={watch("university_id")}
-          placeholder={"University"}
-          error={errors.university_id}
+          ref={affliationtRef}
+          name="affiliation_type"
+          placeholder={"Choose affiliation type"}
+          value={watch("affiliation_type")}
           onChange={(e) => {
-            setValue("university_id", e);
-            trigger("university_id");
+            setValue("affiliation_type", e);
+            // setValue("university_id", "");
+            trigger("affiliation_type");
           }}
-          errors={errors.university_id}
-          data={universities || []}
+          error={errors.affiliation_type}
+          data={
+            [
+              { label: "school", value: "school" },
+              { label: "university", value: "university" },
+            ] || []
+          }
         />
-        <SelectComponent
-          register={register}
-          ref={collegeRef}
-          name="college_id"
-          placeholder={"College"}
-          value={watch("college_id")}
-          onChange={(e) => {
-            setValue("college_id", e);
-            setValue("department_id", "");
-            trigger("college_id");
-          }}
-          error={errors.college_id}
-          data={colleges || []}
-        />
-        <SelectComponent
-          register={register}
-          ref={departmentRef}
-          name="department_id"
-          value={watch("department_id")}
-          placeholder={"Department"}
-          error={errors.department_id}
-          onChange={(e) => {
-            setValue("department_id", e);
-            trigger("department_id");
-          }}
-          errors={errors.department_id}
-          data={departments || []}
-        />
+        {selectedAfiliation === "school" && (
+          <TextInput
+            {...register("school_name")}
+            error={errors.school_name?.message}
+            classNames={{
+              input:
+                "px-4 py-[22px] rtl:text-right  bg-white rounded-sm placeholder:text-neutral-400 mt-1 ",
+            }}
+            type={"text"}
+            className="w-full mt-2"
+            placeholder={"School Name"}
+          />
+        )}
+        {selectedAfiliation === "university" && (
+          <>
+            <SelectComponent
+              register={register}
+              ref={universityRef}
+              name="university_id"
+              value={watch("university_id")}
+              placeholder={"University"}
+              error={errors.university_id}
+              onChange={(e) => {
+                setValue("university_id", e);
+                trigger("university_id");
+              }}
+              errors={errors.university_id}
+              data={universities || []}
+            />
+            <SelectComponent
+              register={register}
+              ref={collegeRef}
+              name="college_id"
+              placeholder={"College"}
+              value={watch("college_id")}
+              onChange={(e) => {
+                setValue("college_id", e);
+                setValue("department_id", "");
+                trigger("college_id");
+              }}
+              error={errors.college_id}
+              data={colleges || []}
+            />
+            <SelectComponent
+              register={register}
+              ref={departmentRef}
+              name="department_id"
+              value={watch("department_id")}
+              placeholder={"Department"}
+              error={errors.department_id}
+              onChange={(e) => {
+                setValue("department_id", e);
+                trigger("department_id");
+              }}
+              errors={errors.department_id}
+              data={departments || []}
+            />
+          </>
+        )}
 
         <StepButtons active={active} setActive={setActive} />
       </form>
