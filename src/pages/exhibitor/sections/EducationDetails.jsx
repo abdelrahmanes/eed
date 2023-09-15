@@ -42,10 +42,11 @@ function EducationDetails({ data, active, setActive, getData }) {
   } = useForm({
     defaultValues: {
       city_id: +savedData.city_id || "",
-      affiliation_type: +savedData.affiliation_type || "",
+      affiliation_type: savedData.affiliation_type || "",
       university_id: +savedData.university_id || "",
       department_id: +savedData.department_id || "",
       college_id: +savedData.college_id || "",
+      school_name: savedData.school_name || "",
     },
     resolver: yupResolver(schema),
   });
@@ -102,7 +103,7 @@ function EducationDetails({ data, active, setActive, getData }) {
           register={register}
           ref={cityRef}
           name="city_id"
-          placeholder={"City of University "}
+          placeholder={"City of University/school "}
           value={watch("city_id")}
           onChange={(e) => {
             setValue("city_id", e);
@@ -116,7 +117,7 @@ function EducationDetails({ data, active, setActive, getData }) {
           register={register}
           ref={affliationtRef}
           name="affiliation_type"
-          placeholder={"Choose affiliation type"}
+          placeholder={"Education"}
           value={watch("affiliation_type")}
           onChange={(e) => {
             setValue("affiliation_type", e);
