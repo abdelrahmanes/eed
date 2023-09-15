@@ -8,6 +8,7 @@ import TermsAndConditions from "./sections/TermsAndConditions";
 import Spinner from "../../components/Spinner";
 import EducationDetails from "./sections/EducationDetails";
 import ProjectDetails from "./sections/ProjectDetails";
+import ProjectMembers from "./sections/ProjectMembers";
 function ExhibitorRegisteration() {
   const [active, setActive] = useState(0);
   const [isDataLoading, setIsDataLoading] = useState(true);
@@ -44,12 +45,15 @@ function ExhibitorRegisteration() {
         <Stepper
           active={active}
           onStepClick={setActive}
-          breakpoint="sm"
+          breakpoint="lg"
           allowNextStepsSelect={false}
-          className="w-3/4 mx-auto"
+          className=" mx-auto"
           classNames={{
+            steps: "!w-fit mt-10 lg:mx-auto",
+            content: " w-full lg:w-5/6 lg:mx-auto",
+            root: "flex lg:flex-col mx-10 lg:mx-auto w-3/4",
             step: "flex-col items-center ",
-            stepDescription: "text-[10px]",
+            stepDescription: "text-[10px] h-2 text-center ",
             stepIcon:
               "bg-neutral-200 text-white data-[progress=true]:border-primary data-[progress=true]:bg-primary ",
             separator: "h-1 mx-0 bg-neutral-200",
@@ -158,7 +162,7 @@ function ExhibitorRegisteration() {
             />
           </Stepper.Step>
           <Stepper.Step
-            description="Competition Details"
+            description="Project Members"
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +181,7 @@ function ExhibitorRegisteration() {
             }
             iconPosition="left"
           >
-            first step
+            <ProjectMembers />
           </Stepper.Step>
           <Stepper.Step
             description="Competition Details"
