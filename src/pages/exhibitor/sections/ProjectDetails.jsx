@@ -7,7 +7,14 @@ import StepButtons from "../../../components/StepButtons";
 import { Flex, TextInput } from "@mantine/core";
 
 const schema = yup.object({
-  name: yup.string().required("Project name is required"),
+  name: yup
+    .string()
+    .test(
+      "len",
+      "Must be at least 2 characters and max 50 characters",
+      (val) => val.length > 2 && val.length <= 50
+    )
+    .required("Project name is required"),
   spec_length: yup.string().required("Project length is required"),
   spec_width: yup.string().required("Project width is required"),
   //   department: yup.string().required("department is required"),
@@ -22,7 +29,7 @@ function ProjectDetails({ active, setActive, getData }) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      name: +savedData.name || "",
+      name: savedData.name || "",
       spec_length: +savedData.spec_length || "",
       spec_width: +savedData.spec_width || "",
       //   department: +savedData.college_id || "",

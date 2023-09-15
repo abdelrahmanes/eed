@@ -11,10 +11,19 @@ const schema = yup.object({
   affiliation_type: yup.string().required("Please Choose one"),
   school_name: yup
     .string()
+
     .ensure()
     .when("affiliation_type", {
       is: "school",
-      then: () => yup.string().required("School name is required"),
+      then: () =>
+        yup
+          .string()
+          .test(
+            "len",
+            "Must be at least 10 characters and max 50 characters",
+            (val) => val.length > 10 && val.length <= 50
+          )
+          .required("School name is required"),
       otherwise: () => yup.string().notRequired(),
     }),
   university_id: yup
@@ -51,11 +60,6 @@ function EducationDetails({ data, active, setActive, getData }) {
     resolver: yupResolver(schema),
   });
 
-  const onsubmit = (submittedData) => {
-    if (Object.keys(errors).length === 0) setActive(active + 1);
-    getData(submittedData);
-  };
-
   // fetch data
   const cities = data?.cities.map((city) => {
     return { label: city.name_en, value: city.id };
@@ -63,8 +67,8 @@ function EducationDetails({ data, active, setActive, getData }) {
 
   const selectedCity = watch("city_id");
   const selectedAfiliation = watch("affiliation_type");
-  // const selectedCity = watch("city_id");
-  // const selectedCity = watch("city_id");
+  const selectedCollege = watch("college_id");
+  const selectedDepartment = watch("department_id");
 
   const universities = data.cities
     ?.find((target) => {
@@ -77,8 +81,6 @@ function EducationDetails({ data, active, setActive, getData }) {
   const colleges = data?.colleges.map((college) => {
     return { label: college.name_en, value: college.id };
   });
-
-  const selectedCollege = watch("college_id");
 
   const departments = data.colleges
     ?.find((target) => {
@@ -93,6 +95,35 @@ function EducationDetails({ data, active, setActive, getData }) {
   const collegeRef = useRef();
   const departmentRef = useRef();
   const affliationtRef = useRef();
+
+  console.log({ errors });
+  const onsubmit = (submittedData) => {
+    if (
+      colleges?.length > 0 &&
+      selectedCollege === "" &&
+      selectedAfiliation === "university"
+    ) {
+      setError("college_id", {
+        type: "custom",
+        message: "Please choose college",
+      });
+      return false;
+    }
+    if (
+      departments?.length > 0 &&
+      selectedDepartment === "" &&
+      selectedAfiliation === "university"
+    ) {
+      setError("department_id", {
+        type: "custom",
+        message: "Please choose department",
+      });
+      return false;
+    }
+    if (Object.keys(errors).length === 0) setActive(active + 1);
+    getData(submittedData);
+  };
+
   return (
     <StepBoxWrapper title={"Education Details"}>
       <form
@@ -121,7 +152,8 @@ function EducationDetails({ data, active, setActive, getData }) {
           value={watch("affiliation_type")}
           onChange={(e) => {
             setValue("affiliation_type", e);
-            // setValue("university_id", "");
+            setValue("university_id", "");
+            setValue("school_name", "");
             trigger("affiliation_type");
           }}
           error={errors.affiliation_type}
@@ -161,34 +193,38 @@ function EducationDetails({ data, active, setActive, getData }) {
               errors={errors.university_id}
               data={universities || []}
             />
-            <SelectComponent
-              register={register}
-              ref={collegeRef}
-              name="college_id"
-              placeholder={"College"}
-              value={watch("college_id")}
-              onChange={(e) => {
-                setValue("college_id", e);
-                setValue("department_id", "");
-                trigger("college_id");
-              }}
-              error={errors.college_id}
-              data={colleges || []}
-            />
-            <SelectComponent
-              register={register}
-              ref={departmentRef}
-              name="department_id"
-              value={watch("department_id")}
-              placeholder={"Department"}
-              error={errors.department_id}
-              onChange={(e) => {
-                setValue("department_id", e);
-                trigger("department_id");
-              }}
-              errors={errors.department_id}
-              data={departments || []}
-            />
+            {colleges?.length > 0 && (
+              <SelectComponent
+                register={register}
+                ref={collegeRef}
+                name="college_id"
+                placeholder={"College"}
+                value={watch("college_id")}
+                onChange={(e) => {
+                  setValue("college_id", e);
+                  setValue("department_id", "");
+                  trigger("college_id");
+                }}
+                error={errors.college_id}
+                data={colleges || []}
+              />
+            )}
+            {departments?.length > 0 && (
+              <SelectComponent
+                register={register}
+                ref={departmentRef}
+                name="department_id"
+                value={watch("department_id")}
+                placeholder={"Department"}
+                error={errors.department_id}
+                onChange={(e) => {
+                  setValue("department_id", e);
+                  trigger("department_id");
+                }}
+                errors={errors.department_id}
+                data={departments || []}
+              />
+            )}
           </>
         )}
 
