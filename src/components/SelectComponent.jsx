@@ -33,6 +33,7 @@ const SelectComponent = forwardRef(
         {" "}
         <Select
           {...props}
+          error={hasError}
           ref={ref}
           label={label}
           value={value}

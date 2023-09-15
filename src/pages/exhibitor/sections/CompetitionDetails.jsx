@@ -6,12 +6,15 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import SelectComponent from "../../../components/SelectComponent";
 import StepButtons from "../../../components/StepButtons";
+import StepBoxWrapper from "../../../components/StepBoxWrapper";
 const schema = yup.object({
-  category: yup.string().required("please choose category"),
-  competition: yup.string().required("please choose competition"),
+  category_id: yup.string().required("please choose category"),
+  competition_id: yup.string().required("please choose competition"),
 });
 
 function CompetitionDetails({ setActive, active, data, getData }) {
+  const savedData = JSON.parse(localStorage.getItem("data"));
+  console.log(savedData);
   const {
     register,
     handleSubmit,
@@ -20,35 +23,37 @@ function CompetitionDetails({ setActive, active, data, getData }) {
     watch,
     trigger,
   } = useForm({
-    defaultValues: { category: "", competition: null },
+    defaultValues: {
+      category_id: +savedData.category_id || "",
+      competition_id: +savedData.competition_id || "",
+    },
     resolver: yupResolver(schema),
   });
-  onsubmit = (submittedData) => {
+  const onsubmit = (submittedData) => {
     if (Object.keys(errors).length === 0) setActive(active + 1);
     getData(submittedData);
   };
 
   // fetch data
   const competitions = data?.map((competition) => {
-    return { label: competition.name, value: competition.name };
+    return { label: competition.name, value: competition.id };
   });
 
-  const selectedCompetition = watch("competition");
+  const selectedCompetition = watch("competition_id");
 
   const categories = data
     ?.find((target) => {
-      return target.name === selectedCompetition;
+      return target.id === selectedCompetition;
     })
     ?.categories.map((category) => {
-      return { label: category.name, value: category.name };
+      return { label: category.name, value: category.id };
     });
 
   const competitionRef = useRef();
   const categoryRef = useRef();
 
   return (
-    <Flex className="flex-col gap-6 p-10 mx-4 my-12 bg-white rounded-md lg:mx-auto lg:w-1/2">
-      <Title className="text-base">Competition Details</Title>
+    <StepBoxWrapper title={"Competition Details"}>
       <form
         onSubmit={handleSubmit(onsubmit)}
         className="flex flex-col gap-3 mt-10"
@@ -56,35 +61,35 @@ function CompetitionDetails({ setActive, active, data, getData }) {
         <SelectComponent
           register={register}
           ref={competitionRef}
-          name="competition"
+          name="competition_id"
           placeholder={"Competition Name"}
-          value={watch("competition")}
+          value={watch("competition_id")}
           onChange={(e) => {
-            setValue("competition", e);
-            setValue("category", "");
-            trigger("competition");
+            setValue("competition_id", e);
+            setValue("category_id", "");
+            trigger("competition_id");
           }}
-          error={errors.competition}
+          error={errors.competition_id}
           data={competitions || []}
         />
         <SelectComponent
           register={register}
           ref={categoryRef}
-          name="category"
-          value={watch("category")}
+          name="category_id"
+          value={watch("category_id")}
           placeholder={"Category"}
-          error={errors.category}
+          error={errors.category_id}
           onChange={(e) => {
-            setValue("category", e);
-            trigger("category");
+            setValue("category_id", e);
+            trigger("category_id");
           }}
-          errors={errors}
+          errors={errors.category_id}
           data={categories || []}
         />
 
         <StepButtons active={active} setActive={setActive} />
       </form>
-    </Flex>
+    </StepBoxWrapper>
   );
 }
 

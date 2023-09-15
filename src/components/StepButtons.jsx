@@ -7,7 +7,7 @@ function StepButtons({ active, setActive }) {
         <button
           type="button"
           onClick={() => {
-            setActive(active - 1);
+            setActive((prev) => prev - 1);
           }}
           className="px-4 py-2 text-white bg-blue-800 rounded-md w-fit"
         >
