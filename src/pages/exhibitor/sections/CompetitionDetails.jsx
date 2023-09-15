@@ -27,7 +27,7 @@ function CompetitionDetails({ setActive, active, data, getData }) {
     defaultValues: {
       category_id: +savedData.category_id || "",
       competition_id: +savedData.competition_id || "",
-      sub_category_id: +savedData.competition_id || "",
+      sub_category_id: +savedData.sub_category_id || "",
     },
     resolver: yupResolver(schema),
   });
