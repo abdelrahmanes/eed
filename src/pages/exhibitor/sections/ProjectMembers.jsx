@@ -52,7 +52,7 @@ const schema = yup.object({
           /^(http(s)?:\/\/)?([\w]+\.)?linkedin\.com\/(pub|in|profile)/,
           "invalid linkedin link"
         ), // linkedin regex
-      interests: yup.string().nullable(), // linkedin regex
+      interests: yup.string().nullable(),
       is_contact: yup.boolean(),
       city_id: yup.number().nullable(),
       school_name: yup.string().nullable(),
