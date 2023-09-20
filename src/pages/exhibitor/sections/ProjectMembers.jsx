@@ -140,7 +140,6 @@ function ProjectMembers({ setActive, active, getData, data }) {
     },
     resolver: yupResolver(schema),
   });
-  console.log({ errors });
   const { fields, append, remove } = useFieldArray({
     name: "members",
     control,
@@ -210,6 +209,7 @@ function ProjectMembers({ setActive, active, getData, data }) {
       };
     });
   };
+
   return (
     <StepBoxWrapper title={"Project Members"}>
       <form onSubmit={handleSubmit(onsubmit)} className="flex flex-col gap-8 ">
@@ -441,14 +441,17 @@ function ProjectMembers({ setActive, active, getData, data }) {
                         </Button>
                       )}
                     </FileButton>
-                    <Button
-                      className="bg-red-700 w-fit hover:bg-red-500"
-                      onClick={() => {
-                        clearFile("front", index);
-                      }}
-                    >
-                      Reset
-                    </Button>
+                    {(watch(`members.${index}.id_front`) ||
+                      watch(`members.${index}.id_front`) !== "") && (
+                      <Button
+                        className="bg-red-700 w-fit hover:bg-red-500"
+                        onClick={() => {
+                          clearFile("front", index);
+                        }}
+                      >
+                        Reset
+                      </Button>
+                    )}
                     {errors?.members?.[index]?.id_front && (
                       <Text className="absolute text-xs text-red-500 -bottom-4">
                         {errors?.members?.[index].id_front.message}
@@ -476,14 +479,17 @@ function ProjectMembers({ setActive, active, getData, data }) {
                         </Button>
                       )}
                     </FileButton>
-                    <Button
-                      className="bg-red-700 w-fit hover:bg-red-500"
-                      onClick={() => {
-                        clearFile("back", index);
-                      }}
-                    >
-                      Reset
-                    </Button>
+                    {(watch(`members.${index}.id_back`) ||
+                      watch(`members.${index}.id_back`) !== "") && (
+                      <Button
+                        className="bg-red-700 w-fit hover:bg-red-500"
+                        onClick={() => {
+                          clearFile("back", index);
+                        }}
+                      >
+                        Reset
+                      </Button>
+                    )}
                     {errors?.members?.[index]?.id_back && (
                       <Text className="absolute text-xs text-red-500 -bottom-4">
                         {errors?.members?.[index].id_back.message}
