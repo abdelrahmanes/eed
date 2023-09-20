@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import SelectComponent from "../../../components/SelectComponent";
-import StepButtons from "../../../components/StepButtons";
 import StepBoxWrapper from "../../../components/StepBoxWrapper";
+import StepButtons from "../../../components/StepButtons";
 const schema = yup.object({
   category_id: yup.string(),
   sub_category_id: yup.string(),

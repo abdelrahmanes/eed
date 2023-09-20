@@ -55,11 +55,12 @@ const SelectComponent = forwardRef(
           }
           data={data}
           classNames={{
-            input: `text-primary focus:border-primary ${
+            input: `text-primary focus:border-primary h-[46px] ${
               hasError && "focus:border-red-500"
             }`,
             item: "data-[selected=true]:bg-primaryHover data-[selected=true]:hover:bg-primary",
           }}
+          className="w-full"
         />
         {hasError && (
           <p className="h-2 -mt-2 text-xs text-red-500">{errorMessages}</p>

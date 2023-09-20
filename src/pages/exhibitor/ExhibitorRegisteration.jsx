@@ -1,14 +1,14 @@
 import { Stepper } from "@mantine/core";
 import { useEffect, useState } from "react";
+import Spinner from "../../components/Spinner";
 import SubPageHero from "../../components/SubPageHero";
 import Layout from "../../layout";
 import { GetProjectData } from "../../services/project";
 import CompetitionDetails from "./sections/CompetitionDetails";
-import TermsAndConditions from "./sections/TermsAndConditions";
-import Spinner from "../../components/Spinner";
 import EducationDetails from "./sections/EducationDetails";
 import ProjectDetails from "./sections/ProjectDetails";
 import ProjectMembers from "./sections/ProjectMembers";
+import TermsAndConditions from "./sections/TermsAndConditions";
 function ExhibitorRegisteration() {
   const [active, setActive] = useState(0);
   const [isDataLoading, setIsDataLoading] = useState(true);
@@ -45,9 +45,9 @@ function ExhibitorRegisteration() {
         <Stepper
           active={active}
           onStepClick={setActive}
-          breakpoint="lg"
           allowNextStepsSelect={false}
-          className=" mx-auto"
+          breakpoint="lg"
+          className="mx-auto "
           classNames={{
             steps: "!w-fit mt-10 lg:mx-auto",
             content: " w-full lg:w-5/6 lg:mx-auto",
@@ -181,7 +181,12 @@ function ExhibitorRegisteration() {
             }
             iconPosition="left"
           >
-            <ProjectMembers />
+            <ProjectMembers
+              active={active}
+              setActive={setActive}
+              getData={handleSubmit}
+              data={{ cities }}
+            />
           </Stepper.Step>
           <Stepper.Step
             description="Competition Details"

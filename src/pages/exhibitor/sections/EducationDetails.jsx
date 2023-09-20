@@ -1,17 +1,16 @@
-import StepBoxWrapper from "../../../components/StepBoxWrapper";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { useRef } from "react";
-import SelectComponent from "../../../components/SelectComponent";
-import StepButtons from "../../../components/StepButtons";
 import { TextInput } from "@mantine/core";
+import { useRef } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import SelectComponent from "../../../components/SelectComponent";
+import StepBoxWrapper from "../../../components/StepBoxWrapper";
+import StepButtons from "../../../components/StepButtons";
 const schema = yup.object({
   city_id: yup.string().required("please choose city"),
   affiliation_type: yup.string().required("Please Choose one"),
   school_name: yup
     .string()
-
     .ensure()
     .when("affiliation_type", {
       is: "school",
@@ -157,12 +156,10 @@ function EducationDetails({ data, active, setActive, getData }) {
             trigger("affiliation_type");
           }}
           error={errors.affiliation_type}
-          data={
-            [
-              { label: "school", value: "school" },
-              { label: "university", value: "university" },
-            ] || []
-          }
+          data={[
+            { label: "school", value: "school" },
+            { label: "university", value: "university" },
+          ]}
         />
         {selectedAfiliation === "school" && (
           <TextInput

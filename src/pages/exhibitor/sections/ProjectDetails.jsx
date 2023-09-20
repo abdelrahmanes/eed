@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import StepBoxWrapper from "../../../components/StepBoxWrapper";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { TextInput } from "@mantine/core";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import StepBoxWrapper from "../../../components/StepBoxWrapper";
 import StepButtons from "../../../components/StepButtons";
-import { Flex, TextInput } from "@mantine/core";
 
 const schema = yup.object({
   name: yup
@@ -44,10 +44,7 @@ function ProjectDetails({ active, setActive, getData }) {
 
   return (
     <StepBoxWrapper title={"Project Details"}>
-      <form
-        onSubmit={handleSubmit(onsubmit)}
-        className="flex flex-col gap-3 mt-10"
-      >
+      <form onSubmit={handleSubmit(onsubmit)} className="flex flex-col gap-3 ">
         <TextInput
           {...register("name")}
           error={errors.name?.message}
