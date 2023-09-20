@@ -427,80 +427,102 @@ function ProjectMembers({ setActive, active, getData, data }) {
                 </Flex>
                 <Flex className="flex-col w-full gap-4">
                   <Text className="font-semibold">Upload National ID</Text>
-                  <Flex className="flex-col gap-2">
-                    <Text className="font-semibold">Front Face</Text>
-                    <Flex className="relative w-full gap-2 mb-6">
-                      <FileButton
-                        {...register(`members.${index}.id_front`)}
-                        resetRef={resetFrontRef}
-                        onChange={(e) => {
-                          uploadImage(e, "front", index);
-                        }}
-                        accept="image/png,image/jpeg"
-                      >
-                        {(props) => (
+                  <Flex className="items-center">
+                    <Flex className="flex-col flex-1 gap-2">
+                      <Text className="font-semibold">Front Face</Text>
+
+                      <Flex className="relative w-full gap-2 mb-6">
+                        <FileButton
+                          {...register(`members.${index}.id_front`)}
+                          resetRef={resetFrontRef}
+                          onChange={(e) => {
+                            uploadImage(e, "front", index);
+                          }}
+                          accept="image/png,image/jpeg"
+                        >
+                          {(props) => (
+                            <Button
+                              {...props}
+                              className="bg-primary hover:bg-primaryHover"
+                            >
+                              Upload image
+                            </Button>
+                          )}
+                        </FileButton>
+                        {(watch(`members.${index}.id_front`) ||
+                          watch(`members.${index}.id_front`) !== "") && (
                           <Button
-                            {...props}
-                            className="bg-primary hover:bg-primaryHover"
+                            className="bg-red-700 w-fit hover:bg-red-500"
+                            onClick={() => {
+                              clearFile("front", index);
+                            }}
                           >
-                            Upload image
+                            Reset
                           </Button>
                         )}
-                      </FileButton>
-                      {(watch(`members.${index}.id_front`) ||
-                        watch(`members.${index}.id_front`) !== "") && (
-                        <Button
-                          className="bg-red-700 w-fit hover:bg-red-500"
-                          onClick={() => {
-                            clearFile("front", index);
-                          }}
-                        >
-                          Reset
-                        </Button>
-                      )}
-                      {errors?.members?.[index]?.id_front && (
-                        <Text className="absolute text-xs text-red-500 -bottom-4">
-                          {errors?.members?.[index].id_front.message}
-                        </Text>
-                      )}
+                        {errors?.members?.[index]?.id_front && (
+                          <Text className="absolute text-xs text-red-500 -bottom-4">
+                            {errors?.members?.[index].id_front.message}
+                          </Text>
+                        )}
+                      </Flex>
+                      <div className="h-[100px]">
+                        {(watch(`members.${index}.id_front`) ||
+                          watch(`members.${index}.id_front`) !== "") && (
+                          <img
+                            src={watch(`members.${index}.id_front`)}
+                            className="w-[50%]"
+                          />
+                        )}
+                      </div>
                     </Flex>
-                  </Flex>
-                  <Flex className="flex-col gap-2">
-                    <Text className="font-semibold">Back Face</Text>
-                    <Flex className="relative w-full gap-2 mb-6">
-                      <FileButton
-                        {...register(`members.${index}.id_back`)}
-                        resetRef={resetBackRef}
-                        onChange={(e) => {
-                          uploadImage(e, "back", index);
-                        }}
-                        accept="image/png,image/jpeg"
-                      >
-                        {(props) => (
+                    <Flex className="flex-col flex-1 w-full gap-2">
+                      <Text className="font-semibold">Back Face</Text>
+
+                      <Flex className="relative w-full gap-2 mb-6">
+                        <FileButton
+                          {...register(`members.${index}.id_back`)}
+                          resetRef={resetBackRef}
+                          onChange={(e) => {
+                            uploadImage(e, "back", index);
+                          }}
+                          accept="image/png,image/jpeg"
+                        >
+                          {(props) => (
+                            <Button
+                              {...props}
+                              className="bg-primary hover:bg-primaryHover"
+                            >
+                              Upload image
+                            </Button>
+                          )}
+                        </FileButton>
+                        {(watch(`members.${index}.id_back`) ||
+                          watch(`members.${index}.id_back`) !== "") && (
                           <Button
-                            {...props}
-                            className="bg-primary hover:bg-primaryHover"
+                            className="bg-red-700 w-fit hover:bg-red-500"
+                            onClick={() => {
+                              clearFile("back", index);
+                            }}
                           >
-                            Upload image
+                            Reset
                           </Button>
                         )}
-                      </FileButton>
-                      {(watch(`members.${index}.id_back`) ||
-                        watch(`members.${index}.id_back`) !== "") && (
-                        <Button
-                          className="bg-red-700 w-fit hover:bg-red-500"
-                          onClick={() => {
-                            clearFile("back", index);
-                          }}
-                        >
-                          Reset
-                        </Button>
-                      )}
-                      {errors?.members?.[index]?.id_back && (
-                        <Text className="absolute text-xs text-red-500 -bottom-4">
-                          {errors?.members?.[index].id_back.message}
-                        </Text>
-                      )}
+                        {errors?.members?.[index]?.id_back && (
+                          <Text className="absolute text-xs text-red-500 -bottom-4">
+                            {errors?.members?.[index].id_back.message}
+                          </Text>
+                        )}
+                      </Flex>
+                      <div className="h-[100px]">
+                        {(watch(`members.${index}.id_back`) ||
+                          watch(`members.${index}.id_back`) !== "") && (
+                          <img
+                            src={watch(`members.${index}.id_back`)}
+                            className="w-[50%]"
+                          />
+                        )}
+                      </div>
                     </Flex>
                   </Flex>
                 </Flex>

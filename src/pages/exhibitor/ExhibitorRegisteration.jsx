@@ -8,6 +8,7 @@ import CompetitionDetails from "./sections/CompetitionDetails";
 import EducationDetails from "./sections/EducationDetails";
 import ProjectDetails from "./sections/ProjectDetails";
 import ProjectMembers from "./sections/ProjectMembers";
+import Supervisors from "./sections/Supervisors";
 import TermsAndConditions from "./sections/TermsAndConditions";
 function ExhibitorRegisteration() {
   const [active, setActive] = useState(0);
@@ -45,7 +46,7 @@ function ExhibitorRegisteration() {
         <Stepper
           active={active}
           onStepClick={setActive}
-          allowNextStepsSelect={false}
+          allowNextStepsSelect={true}
           breakpoint="lg"
           className="mx-auto "
           classNames={{
@@ -189,7 +190,7 @@ function ExhibitorRegisteration() {
             />
           </Stepper.Step>
           <Stepper.Step
-            description="Competition Details"
+            description="Supervisors"
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -208,7 +209,11 @@ function ExhibitorRegisteration() {
             }
             iconPosition="left"
           >
-            first step
+            <Supervisors
+              active={active}
+              setActive={setActive}
+              getData={handleSubmit}
+            />
           </Stepper.Step>
           <Stepper.Step
             description="Competition Details"
