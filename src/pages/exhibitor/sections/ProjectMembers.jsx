@@ -348,7 +348,7 @@ function ProjectMembers({ setActive, active, getData, data }) {
                     disabled={membersValue.some(
                       (member, i) => member.is_contact && index !== i
                     )}
-                    label="Contact Person?"
+                    label="Team Leader?"
                   />
                 </Flex>
                 <Flex className="flex-col w-full gap-2">
