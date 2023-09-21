@@ -17,7 +17,7 @@ const schema = yup.object({
     name_en: yup
       .string()
       .required("Name in english is required")
-      .matches(/^[A-Za-z]+$/, "Only english letters are allowed"),
+      .matches(/^[A-Za-z\s]+$/, "Only english letters are allowed"),
     email: yup
       .string()
       .email("Invalid email address")

@@ -28,7 +28,10 @@ const schema = yup.object({
       name_en: yup
         .string()
         .required("Name in english is required")
-        .matches(/^[A-Za-z]+$/, "Only english letters are allowed"),
+        .matches(
+          /^[A-Za-z\s]+$/,
+          "Only english letters and spaces are allowed"
+        ),
       phone: yup
         .string()
         .required("Phone is required")
@@ -78,6 +81,7 @@ function ProjectMembers({ setActive, active, getData, data }) {
     trigger,
     control,
     setError,
+    getValues,
     resetField,
   } = useForm({
     defaultValues: {
@@ -211,6 +215,7 @@ function ProjectMembers({ setActive, active, getData, data }) {
     });
   };
 
+  const membersValue = getValues().members;
   return (
     <StepBoxWrapper title={"Project Members"} className={"!w-3/4"}>
       <form
@@ -249,7 +254,7 @@ function ProjectMembers({ setActive, active, getData, data }) {
                       }}
                       type={"text"}
                       className="w-full mt-1"
-                      placeholder={"Full Name"}
+                      placeholder={"Full Name for the certificate"}
                     />
                     <TextInput
                       {...register(`members.${index}.name_ar`)}
@@ -340,6 +345,9 @@ function ProjectMembers({ setActive, active, getData, data }) {
                   <Switch
                     {...register(`members.${index}.is_contact`)}
                     checked={watch(`members.${index}.is_contact`)}
+                    disabled={membersValue.some(
+                      (member, i) => member.is_contact && index !== i
+                    )}
                     label="Contact Person?"
                   />
                 </Flex>
@@ -471,7 +479,7 @@ function ProjectMembers({ setActive, active, getData, data }) {
                           watch(`members.${index}.id_front`) !== "") && (
                           <img
                             src={watch(`members.${index}.id_front`)}
-                            className="w-[50%]"
+                            className="w-[50%] h-[70%] object-contain"
                           />
                         )}
                       </div>
@@ -519,7 +527,7 @@ function ProjectMembers({ setActive, active, getData, data }) {
                           watch(`members.${index}.id_back`) !== "") && (
                           <img
                             src={watch(`members.${index}.id_back`)}
-                            className="w-[50%]"
+                            className="w-[50%] h-[70%] object-contain"
                           />
                         )}
                       </div>
