@@ -254,7 +254,9 @@ function ProjectMembers({ setActive, active, getData, data }) {
                       }}
                       type={"text"}
                       className="w-full mt-1"
-                      placeholder={"Full Name for the certificate"}
+                      placeholder={
+                        "Full Name (will be used in the certificates)"
+                      }
                     />
                     <TextInput
                       {...register(`members.${index}.name_ar`)}

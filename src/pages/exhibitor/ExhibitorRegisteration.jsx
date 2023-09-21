@@ -9,13 +9,14 @@ import EducationDetails from "./sections/EducationDetails";
 import ProjectDetails from "./sections/ProjectDetails";
 import ProjectMembers from "./sections/ProjectMembers";
 import Supervisors from "./sections/Supervisors";
+import Survey from "./sections/Survey";
 import TermsAndConditions from "./sections/TermsAndConditions";
 function ExhibitorRegisteration() {
   const [active, setActive] = useState(0);
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [data, setData] = useState([]);
   const [requestBody, setRequestBody] = useState({});
-  const { competitions, cities, colleges } = data;
+  const { competitions, cities, colleges, questions } = data;
 
   useEffect(() => {
     GetProjectData()
@@ -46,7 +47,7 @@ function ExhibitorRegisteration() {
         <Stepper
           active={active}
           onStepClick={setActive}
-          allowNextStepsSelect={true}
+          allowNextStepsSelect={false}
           breakpoint="lg"
           className="mx-auto "
           classNames={{
@@ -216,7 +217,7 @@ function ExhibitorRegisteration() {
             />
           </Stepper.Step>
           <Stepper.Step
-            description="Competition Details"
+            description="Surveys"
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -235,7 +236,12 @@ function ExhibitorRegisteration() {
             }
             iconPosition="left"
           >
-            first step
+            <Survey
+              active={active}
+              setActive={setActive}
+              getData={handleSubmit}
+              data={questions}
+            />
           </Stepper.Step>
           <Stepper.Step description="Competition Details">
             second step
