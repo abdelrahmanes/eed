@@ -1,5 +1,5 @@
 import { Flex, ScrollArea, Text, Textarea } from "@mantine/core";
-import { useFieldArray, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import StepButtons from "../../../components/StepButtons";
 
 function Survey({ active, setActive, getData, data }) {
@@ -23,22 +23,22 @@ function Survey({ active, setActive, getData, data }) {
           (x) =>
             !x.competition_id || x.competition_id === +savedData.competition_id
         )
-        .map((question) => {
-          return { question_id: question.id, answer: "" };
+        .map((question, index) => {
+          return {
+            question_id: question.id,
+            answer: savedData?.answers?.[index]?.answer || "",
+          };
         }),
     },
   });
   console.log({ errors });
-  const { remove, append, fields } = useFieldArray({
-    name: "answers",
-    control,
-  });
+
   const onsubmit = (submittedData) => {
     if (Object.keys(errors).length === 0) setActive(active + 1);
     console.log({ submittedData });
     getData(submittedData);
   };
-  console.log({ fields });
+
   return (
     <form
       onSubmit={handleSubmit(onsubmit)}

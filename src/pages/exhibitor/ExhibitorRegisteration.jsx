@@ -6,6 +6,7 @@ import Layout from "../../layout";
 import { GetProjectData } from "../../services/project";
 import CompetitionDetails from "./sections/CompetitionDetails";
 import EducationDetails from "./sections/EducationDetails";
+import Equipments from "./sections/Equipments";
 import ProjectDetails from "./sections/ProjectDetails";
 import ProjectMembers from "./sections/ProjectMembers";
 import Supervisors from "./sections/Supervisors";
@@ -16,7 +17,7 @@ function ExhibitorRegisteration() {
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [data, setData] = useState([]);
   const [requestBody, setRequestBody] = useState({});
-  const { competitions, cities, colleges, questions } = data;
+  const { competitions, cities, colleges, questions, items } = data;
 
   useEffect(() => {
     GetProjectData()
@@ -47,7 +48,7 @@ function ExhibitorRegisteration() {
         <Stepper
           active={active}
           onStepClick={setActive}
-          allowNextStepsSelect={false}
+          allowNextStepsSelect={true}
           breakpoint="lg"
           className="mx-auto "
           classNames={{
@@ -243,11 +244,59 @@ function ExhibitorRegisteration() {
               data={questions}
             />
           </Stepper.Step>
-          <Stepper.Step description="Competition Details">
-            second step
+          <Stepper.Step
+            description="Equipments"
+            icon={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentcolor"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 m-auto "
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                />
+              </svg>
+            }
+            iconPosition="left"
+          >
+            <Equipments
+              active={active}
+              setActive={setActive}
+              getData={handleSubmit}
+              data={items}
+            />
           </Stepper.Step>
-          <Stepper.Step description="Competition Details">
-            third step
+          <Stepper.Step
+            description="Surveys"
+            icon={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentcolor"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 m-auto "
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                />
+              </svg>
+            }
+            iconPosition="left"
+          >
+            <Survey
+              active={active}
+              setActive={setActive}
+              getData={handleSubmit}
+              data={questions}
+            />
           </Stepper.Step>
         </Stepper>
       )}

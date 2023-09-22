@@ -7,7 +7,7 @@ function StepBoxWrapper({ title, children, className }) {
     <Flex
       className={`flex-col gap-6 p-10 mx-4 lg:my-12 mt-8 bg-white rounded-md lg:mx-auto lg:w-1/2 ${className}`}
     >
-      <Title className="text-base">{title}</Title>
+      {title && <Title className="text-base">{title}</Title>}
       <FormProvider>{children}</FormProvider>
     </Flex>
   );
