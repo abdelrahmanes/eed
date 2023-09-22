@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Flex, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
-import InfoCard from "../../../../components/infoCard";
+import InfoCard from "../../../../components/InfoCard";
 
 function MembersInfo() {
   const [savedData, setSavedData] = useState({});
