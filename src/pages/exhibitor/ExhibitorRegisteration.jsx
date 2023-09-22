@@ -51,7 +51,7 @@ function ExhibitorRegisteration() {
         <Stepper
           active={active}
           onStepClick={setActive}
-          allowNextStepsSelect={false}
+          allowNextStepsSelect={true}
           breakpoint="lg"
           className="mx-auto "
           classNames={{
