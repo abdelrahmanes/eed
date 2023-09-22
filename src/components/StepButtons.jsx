@@ -1,6 +1,6 @@
 import { Flex } from "@mantine/core";
 
-function StepButtons({ active, setActive }) {
+function StepButtons({ active, setActive, last }) {
   return (
     <Flex className="justify-between w-full mt-6">
       {active !== 0 && (
@@ -18,7 +18,7 @@ function StepButtons({ active, setActive }) {
         type="submit"
         className="px-4 py-2 ml-auto text-white rounded-md bg-primary w-fit"
       >
-        Next
+        {last ? "Submit" : "Next"}
       </button>
     </Flex>
   );

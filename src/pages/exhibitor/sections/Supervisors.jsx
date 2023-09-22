@@ -39,7 +39,6 @@ const schema = yup.object({
 });
 function Supervisors({ setActive, active, getData }) {
   const savedData = JSON.parse(localStorage.getItem("data"));
-  console.log(savedData);
   const {
     register,
     handleSubmit,
@@ -65,7 +64,6 @@ function Supervisors({ setActive, active, getData }) {
 
   const onsubmit = (submittedData) => {
     if (Object.keys(errors).length === 0) setActive(active + 1);
-    console.log({ submittedData });
     getData(submittedData);
   };
 

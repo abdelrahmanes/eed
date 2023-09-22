@@ -22,7 +22,6 @@ const schema = yup.object({
 
 function ProjectDetails({ active, setActive, getData }) {
   const savedData = JSON.parse(localStorage.getItem("data"));
-  console.log(savedData);
   const {
     register,
     handleSubmit,

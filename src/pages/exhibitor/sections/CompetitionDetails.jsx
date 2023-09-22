@@ -14,7 +14,7 @@ const schema = yup.object({
 
 function CompetitionDetails({ setActive, active, data, getData }) {
   const savedData = JSON.parse(localStorage.getItem("data"));
-  console.log(savedData);
+
   const {
     register,
     handleSubmit,

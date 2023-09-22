@@ -5,17 +5,14 @@ import StepButtons from "../../../components/StepButtons";
 
 function Equipments({ active, setActive, data, getData }) {
   const savedData = JSON.parse(localStorage.getItem("data"));
-  console.log(savedData);
   const {
     register,
     handleSubmit,
     formState: { errors },
     setValue,
     watch,
-    trigger,
     setError,
     getValues,
-    resetField,
   } = useForm({
     defaultValues: {
       items: data.map((item, index) => {
@@ -26,19 +23,20 @@ function Equipments({ active, setActive, data, getData }) {
       }),
     },
   });
-  console.log({ errors });
-  const onsubmit = (submittedData) => {
-    if (Object.keys(errors).length === 0) setActive(active + 1);
-    console.log({ submittedData });
-    getData(submittedData);
-  };
 
   const itemsValues = getValues().items;
-  console.log({ itemsValues });
   const getItemPrice = (id) => {
-    console.log({ id });
     return data.find((item) => item.id === id)?.price;
   };
+  const totalPrice = itemsValues.reduce((accumulator, object) => {
+    return accumulator + +object.quantity * getItemPrice(object.item_id);
+  }, 0);
+
+  const onsubmit = (submittedData) => {
+    if (Object.keys(errors).length === 0) setActive(active + 1);
+    getData({ totalPrice: totalPrice, ...submittedData });
+  };
+
   return (
     <StepBoxWrapper className={"!w-[70%]"}>
       <form onSubmit={handleSubmit(onsubmit)} className="flex flex-col ">
@@ -136,15 +134,7 @@ function Equipments({ active, setActive, data, getData }) {
         </ScrollArea>
         <Text className="pt-4 text-4xl font-bold border-t border-neutral-400">
           Total:
-          <span className="ml-3 text-primary">
-            {itemsValues.reduce((accumulator, object) => {
-              console.log(object);
-              return (
-                accumulator + +object.quantity * getItemPrice(object.item_id)
-              );
-            }, 0)}{" "}
-            L.E
-          </span>
+          <span className="ml-3 text-primary">{totalPrice} L.E</span>
         </Text>
         <StepButtons active={active} setActive={setActive} />
       </form>

@@ -7,7 +7,6 @@ const InputComponent = forwardRef(
   ({ type, placeholder, label, register, error, ...props }, ref) => {
     const errorMessages = error?.message;
     const hasError = !!(error && errorMessages);
-    console.log({ error });
     useEffect(() => {
       if (hasError) {
         ref?.current?.focus();

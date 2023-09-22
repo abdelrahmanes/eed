@@ -38,7 +38,6 @@ const schema = yup.object({
 });
 function EducationDetails({ data, active, setActive, getData }) {
   const savedData = JSON.parse(localStorage.getItem("data"));
-  console.log(savedData);
   const {
     register,
     handleSubmit,
@@ -95,7 +94,6 @@ function EducationDetails({ data, active, setActive, getData }) {
   const departmentRef = useRef();
   const affliationtRef = useRef();
 
-  console.log({ errors });
   const onsubmit = (submittedData) => {
     if (
       colleges?.length > 0 &&

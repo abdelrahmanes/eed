@@ -4,7 +4,6 @@ import StepButtons from "../../../components/StepButtons";
 
 // eslint-disable-next-line react/prop-types
 function TermsAndConditions({ active, setActive }) {
-  console.log({ active });
   onsubmit = () => {};
   return (
     <StepBoxWrapper title={"Terms and conditions"}>

@@ -9,6 +9,7 @@ import EducationDetails from "./sections/EducationDetails";
 import Equipments from "./sections/Equipments";
 import ProjectDetails from "./sections/ProjectDetails";
 import ProjectMembers from "./sections/ProjectMembers";
+import ProjectSubmit from "./sections/ProjectSubmit";
 import Supervisors from "./sections/Supervisors";
 import Survey from "./sections/Survey";
 import TermsAndConditions from "./sections/TermsAndConditions";
@@ -16,7 +17,9 @@ function ExhibitorRegisteration() {
   const [active, setActive] = useState(0);
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [data, setData] = useState([]);
-  const [requestBody, setRequestBody] = useState({});
+  const [requestBody, setRequestBody] = useState(() => {
+    return JSON.parse(localStorage.getItem("data")) || [];
+  });
   const { competitions, cities, colleges, questions, items } = data;
 
   useEffect(() => {
@@ -38,7 +41,7 @@ function ExhibitorRegisteration() {
   useEffect(() => {
     localStorage.setItem("data", JSON.stringify(requestBody));
   }, [requestBody]);
-  console.log({ requestBody });
+
   return (
     <Layout>
       <SubPageHero title={"Exhibitor Regestration"} />
@@ -52,14 +55,16 @@ function ExhibitorRegisteration() {
           breakpoint="lg"
           className="mx-auto "
           classNames={{
-            steps: "!w-fit mt-10 lg:mx-auto",
+            steps: "!w-full mt-10 lg:mx-auto items-center",
+            stepCompletedIcon: "bg-primary rounded-full",
             content: " w-full lg:w-5/6 lg:mx-auto",
             root: "flex lg:flex-col mx-10 lg:mx-auto w-3/4",
             step: "flex-col items-center ",
-            stepDescription: "text-[10px] h-2 text-center ",
+            stepDescription: "text-[12px] h-2 text-center ",
+            separatorActive: "bg-primary rounded-xl",
             stepIcon:
-              "bg-neutral-200 text-white data-[progress=true]:border-primary data-[progress=true]:bg-primary ",
-            separator: "h-1 mx-0 bg-neutral-200",
+              "bg-neutral-200 text-white data-[progress=true]:border-primary data-[completed=true]:bg-primary data-[completed=true]:border-primary data-[progress=true]:bg-primary ",
+            separator: "h-1 mx-0 w-full bg-neutral-200 rounded-xl mb-3",
           }}
         >
           <Stepper.Step
@@ -291,11 +296,11 @@ function ExhibitorRegisteration() {
             }
             iconPosition="left"
           >
-            <Survey
+            <ProjectSubmit
               active={active}
               setActive={setActive}
               getData={handleSubmit}
-              data={questions}
+              data={data}
             />
           </Stepper.Step>
         </Stepper>
