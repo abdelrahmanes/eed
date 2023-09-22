@@ -51,7 +51,7 @@ function ExhibitorRegisteration() {
         <Stepper
           active={active}
           onStepClick={setActive}
-          allowNextStepsSelect={true}
+          allowNextStepsSelect={false}
           breakpoint="lg"
           className="mx-auto "
           classNames={{
@@ -277,7 +277,7 @@ function ExhibitorRegisteration() {
             />
           </Stepper.Step>
           <Stepper.Step
-            description="Surveys"
+            description="Submit Project"
             icon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
