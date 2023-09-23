@@ -15,21 +15,21 @@ function Home() {
       image: ieee,
       title: "About IEEE",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Pellentesque nec ultricies erat. Vivamus volutpat pellentesque urna,vitae maximus felis tempor quis. Nullam volutpat dui consectetu  tempor semper. Suspendisse potenti. Nullam ultricies libero a veli  ullamcorper fringilla. Nunc quam justo, semper sed elit id, rhoncu  eleifend tortor. Vestibulum magna sapien, bibendum vel nisi ut  lacinia luctus nisl. Nullam consequat dignissim odio, pellentesqu  mattis diam aliquam sit amet. Vestibulum a nunc vel tellus sodale  ornare vel ac purus.",
+      "IEEE (The Institute of Electrical & Electronics Engineers) is a non-profit organization whose members inspire a global community to innovate for a better tomorrow through its highly cited publications, conferences, technology standards, and professional and educational activities.",
     },
     {
       id: 2,
       image: eed,
       title: "About EED",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Pellentesque nec ultricies erat. Vivamus volutpat pellentesque urna,vitae maximus felis tempor quis. Nullam volutpat dui consectetu  tempor semper. Suspendisse potenti. Nullam ultricies libero a veli  ullamcorper fringilla. Nunc quam justo, semper sed elit id, rhoncu  eleifend tortor. Vestibulum magna sapien, bibendum vel nisi ut  lacinia luctus nisl. Nullam consequat dignissim odio, pellentesqu  mattis diam aliquam sit amet. Vestibulum a nunc vel tellus sodale  ornare vel ac purus.",
+      "The Egyptian Engineering Day, was first founded in the annual Egyptian Student Branches Meeting, ESBM 2002. The EED was suggested to be an expo for engineering graduation projects. EED has become a special national event that receives deliberation from the Egyptian government, academia, industry and media with both local and regional recognition. It's considered as the annual nexus for engineers where engineering professionals meet new associates in the field, share ideas, collaborate on projects and learn new things.",
     },
     {
       id: 3,
       image: yp,
       title: "About IEEE Egypt section and YP Egypt",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Pellentesque nec ultricies erat. Vivamus volutpat pellentesque urna,vitae maximus felis tempor quis. Nullam volutpat dui consectetu  tempor semper. Suspendisse potenti. Nullam ultricies libero a veli  ullamcorper fringilla. Nunc quam justo, semper sed elit id, rhoncu  eleifend tortor. Vestibulum magna sapien, bibendum vel nisi ut  lacinia luctus nisl. Nullam consequat dignissim odio, pellentesqu  mattis diam aliquam sit amet. Vestibulum a nunc vel tellus sodale  ornare vel ac purus.",
+        "The IEEE history in Egypt is back to 70 years ago. Annual Technical conferences and workshops in various engineering fields have been organized by the IEEE Egypt Section since then, as well as supervising various activities in many universities through +50 IEEE student branches. IEEE Young Professionals is an international community of innovative members and volunteers. Members of this community are interested in elevating their professional image, expanding their global network, connecting with peers locally and giving back to the community. IEEE YP Egypt provides a competitive advantage to entities – that has good business sense in today’s fast-paced environment. In order to reduce the technical or financial risk, gain access to highly specialized programs and to get connected with innovative minds.",
     },
   ];
   const achievments = [

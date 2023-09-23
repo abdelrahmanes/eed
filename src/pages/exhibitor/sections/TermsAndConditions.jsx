@@ -1,12 +1,54 @@
-import { ScrollArea } from "@mantine/core";
+import { ScrollArea,} from "@mantine/core";
 import StepBoxWrapper from "../../../components/StepBoxWrapper";
 import StepButtons from "../../../components/StepButtons";
+import { Card, Typography } from "@material-tailwind/react";
 
 // eslint-disable-next-line react/prop-types
+const TABLE_HEAD1=["Item", "Quantity"]
+const TABLE_ROWS1 = [
+  { item: "Basic Chair", quantity:"2" },
+  { item: "Basic Exhibition Space (2m*1m)", quantity:"1" },
+  { item: "Basic Meal", quantity:"1" },
+  { item: "Basic Table", quantity:"1" },
+  { item: "Single-Phase Power Supply", quantity:"1" },
+  { item: "Accommodation", quantity:"1" }
+];
+const TABLE_HEAD2=["Item", "Quantity", "Price"]
+const TABLE_ROWS2 = [
+  { item: "Extra Chair", quantity:"1", price:"50"},
+  { item: "Extra Exhibition Space (2m*1m)", quantity:"1", price:"100" },
+  { item: "Extra Meal", quantity:"1" ,price:"50"},
+  { item: "Extra Table", quantity:"1" ,price:"100"},
+  { item: "Extra Single-Phase Power Supply", quantity:"1" ,price:"50"},
+  { item: "Display Screen", quantity:"1" ,price:"100"},
+  { item: "Accommodation", quantity:"1" ,price:"200"},
+  { item: "Three-Phase Power Supply", quantity:"1" ,price:"300"}
+];
+
 function TermsAndConditions({ active, setActive }) {
+  
+  // const rows1 = elements1.map((element) => {
+  //   return <Table.Tr key={element.item}>
+  //     <Table.Td>{element.item}</Table.Td>
+  //     <Table.Td>{element.quantity}</Table.Td>
+  //   </Table.Tr> 
+  // });
+  
+  // const rows2 = elements2.map((element) => (
+  //   <Table.Tr key={element.item}>
+  //     <Table.Td>{element.item}</Table.Td>
+  //     <Table.Td>{element.quantity}</Table.Td>
+  //     <Table.Td>{element.price}</Table.Td>
+  //   </Table.Tr>
+  // ));
+
+
+
   onsubmit = () => {};
+
   return (
     <StepBoxWrapper title={"Terms and conditions"}>
+
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -14,325 +56,345 @@ function TermsAndConditions({ active, setActive }) {
         }}
         id="placeholders"
       >
-        <ScrollArea className="h-[60vh]">
+        <ScrollArea className="h-[60vh] ">
           <p>
-            Welcome to{" "}
-            <span className="highlight preview_website_name">Website Name</span>
+          Dear Applicant,  Welcome to{""}
+            <span className="font-medium tracking-wide	"> EED</span>
             !
           </p>
           <p>
-            These terms and conditions outline the rules and regulations for the
-            use of{" "}
-            <span className="highlight preview_company_name">Company Name</span>
-            's Website, located at{" "}
-            <span className="highlight preview_website_url">Website.com</span>.
-          </p>
-          <p>
-            By accessing this website we assume you accept these terms and
-            conditions. Do not continue to use{" "}
-            <span className="highlight preview_website_name">Website Name</span>{" "}
-            if you do not agree to take all of the terms and conditions stated
-            on this page.
-          </p>
-          <p>
-            The following terminology applies to these Terms and Conditions,
-            Privacy Statement and Disclaimer Notice and all Agreements:
-            “Client”, “You” and “Your” refers to you, the person log on this
-            website and compliant to the Company's terms and conditions. “The
-            Company”, “Ourselves”, “We”, “Our” and “Us”, refers to our Company.
-            “Party”, “Parties”, or “Us”, refers to both the Client and
-            ourselves. All terms refer to the offer, acceptance and
-            consideration of payment necessary to undertake the process of our
-            assistance to the Client in the most appropriate manner for the
-            express purpose of meeting the Client's needs in respect of
-            provision of the Company's stated services, in accordance with and
-            subject to, prevailing law of Netherlands. Any use of the above
-            terminology or other words in the singular, plural, capitalization
-            and/or he/she or they, are taken as interchangeable and therefore as
-            referring to same.
-          </p>
-          <h3>
-            <strong>Cookies</strong>
-          </h3>
-          <p>
-            We employ the use of cookies. By accessing{" "}
-            <span className="highlight preview_website_name">Website Name</span>
-            , you agreed to use cookies in agreement with the{" "}
-            <span className="highlight preview_company_name">Company Name</span>
-            's Privacy Policy.
-          </p>
-          <p>
-            Most interactive websites use cookies to let us retrieve the user's
-            details for each visit. Cookies are used by our website to enable
-            the functionality of certain areas to make it easier for people
-            visiting our website. Some of our affiliate/advertising partners may
-            also use cookies.
-          </p>
-          <h3>
-            <strong>License</strong>
-          </h3>
-          <p>
-            Unless otherwise stated,{" "}
-            <span className="highlight preview_company_name">Company Name</span>{" "}
-            and/or its licensors own the intellectual property rights for all
-            material on{" "}
-            <span className="highlight preview_website_name">Website Name</span>
-            . All intellectual property rights are reserved. You may access this
-            from{" "}
-            <span className="highlight preview_website_name">Website Name</span>{" "}
-            for your own personal use subjected to restrictions set in these
-            terms and conditions.
-          </p>
-          <p>You must not:</p>
-          <ul>
+            <ul className="list-disc list-inside">
             <li>
-              Republish material from{" "}
-              <span className="highlight preview_website_name">
-                Website Name
-              </span>
+               Please note that this online registration is only an initial step in your team & participation process in EED 2023 as a graduation project. And then there will be a selection process based on the submitted data.
             </li>
             <li>
-              Sell, rent or sub-license material from{" "}
-              <span className="highlight preview_website_name">
-                Website Name
-              </span>
+               So, please make sure to fill in all the required forms with your valid and most updated data. For all details about registration requirements, the selection criteria, filtration process… etc.
             </li>
             <li>
-              Reproduce, duplicate or copy material from{" "}
-              <span className="highlight preview_website_name">
-                Website Name
-              </span>
+               Every project should have a team leader who should read our instructions carefully before starting the registration process to avoid any future problems.
+            </li>          
+            <li>
+               The team leader is responsible for registering the project and adding all his team members’ information.
             </li>
             <li>
-              Redistribute content from{" "}
-              <span className="highlight preview_website_name">
-                Website Name
-              </span>
-            </li>
-          </ul>
-          <p>This Agreement shall begin on the date hereof.</p>
-          <p>
-            Parts of this website offer an opportunity for users to post and
-            exchange opinions and information in certain areas of the website.{" "}
-            <span className="highlight preview_company_name">Company Name</span>{" "}
-            does not filter, edit, publish or review Comments prior to their
-            presence on the website. Comments do not reflect the views and
-            opinions of{" "}
-            <span className="highlight preview_company_name">Company Name</span>
-            ,its agents and/or affiliates. Comments reflect the views and
-            opinions of the person who post their views and opinions. To the
-            extent permitted by applicable laws,{" "}
-            <span className="highlight preview_company_name">
-              Company Name
-            </span>{" "}
-            shall not be liable for the Comments or for any liability, damages
-            or expenses caused and/or suffered as a result of any use of and/or
-            posting of and/or appearance of the Comments on this website.
-          </p>
-          <p>
-            <span className="highlight preview_company_name">Company Name</span>{" "}
-            reserves the right to monitor all Comments and to remove any
-            Comments which can be considered inappropriate, offensive or causes
-            breach of these Terms and Conditions.
-          </p>
-          <p>You warrant and represent that:</p>
-          <ul>
-            <li>
-              You are entitled to post the Comments on our website and have all
-              necessary licenses and consents to do so;
+               The Registration process has two phases, The Registration phase, where each team must fill the registration form for completing the project’s info and answering all the questions related to the early evaluation, then all projects will enter The Filtration phase, which includes the reviewing and early judgment of all the registered projects depending on their answers, so be careful.
             </li>
             <li>
-              The Comments do not invade any intellectual property right,
-              including without limitation copyright, patent or trademark of any
-              third party;
+              All registered projects will be filtered and judged by professional judges.
             </li>
             <li>
-              The Comments do not contain any defamatory, libelous, offensive,
-              indecent or otherwise unlawful material which is an invasion of
-              privacy
+              Only innovative and applicable projects "Prototype - Well thought out idea" can exhibit in the EED2023.
             </li>
             <li>
-              The Comments will not be used to solicit or promote business or
-              custom or present commercial activities or unlawful activity.
-            </li>
-          </ul>
-          <p>
-            You hereby grant{" "}
-            <span className="highlight preview_company_name">Company Name</span>{" "}
-            a non-exclusive license to use, reproduce, edit and authorize others
-            to use, reproduce and edit any of your Comments in any and all
-            forms, formats or media.
-          </p>
-          <h3>
-            <strong>Hyperlinking to our Content</strong>
-          </h3>
-          <p>
-            The following organizations may link to our Website without prior
-            written approval:
-          </p>
-          <ul>
-            <li>Government agencies;</li>
-            <li>Search engines;</li>
-            <li>News organizations;</li>
+              An acceptance email will be sent to all qualified projects.
+            </li>          
             <li>
-              Online directory distributors may link to our Website in the same
-              manner as they hyperlink to the Websites of other listed
-              businesses; and
-            </li>
+              A rejection email will be sent to the unqualified projects
+            </li>          
             <li>
-              System wide Accredited Businesses except soliciting non-profit
-              organizations, charity shopping malls, and charity fundraising
-              groups which may not hyperlink to our Web site.
-            </li>
-          </ul>
-          <p>
-            These organizations may link to our home page, to publications or to
-            other Website information so long as the link: (a) is not in any way
-            deceptive; (b) does not falsely imply sponsorship, endorsement or
-            approval of the linking party and its products and/or services; and
-            (c) fits within the context of the linking party's site.
+              Any project that violates our instructions, rules or regulations will be eliminated from the competition. 
+            </li>          
+            </ul>
           </p>
           <p>
-            We may consider and approve other link requests from the following
-            types of organizations:
-          </p>
-          <ul>
+            
+
+            <strong>Special Notes:</strong>
+            <ol className="list-decimal list-inside">
+              <li>In some urgent cases, the EED core team may need to change the rules without returning to the exhibitors.</li> 
+              <li>No political activities will be allowed.</li>
+              <li>We are volunteers in a non-profit organization; your cooperation is much appreciated.</li>
+              If you have any inquiries, kindly feel free to contact the EED Registration Team through: <a href="mailto:reg.eed@ieeeypegypt.org" className="bg-sky-100 hover:bg-sky-400 p-1 text-sm">reg.eed@ieeeypegypt.org</a>
+            </ol>
+
+            <p className="m-10 mx-0">
+              <strong className="italic">
+                Terms and Conditions for Participation in the Egyptian Engineering Day Graduation Project Competition
+              </strong>
+            </p>
+            <strong>
+            Eligibility
+            </strong>
+            <ul className="list-disc list-inside">
             <li>
-              commonly-known consumer and/or business information sources;
-            </li>
-            <li>dot.com community sites;</li>
-            <li>associations or other groups representing charities;</li>
-            <li>online directory distributors;</li>
-            <li>internet portals;</li>
-            <li>accounting, law and consulting firms; and</li>
-            <li>educational institutions and trade associations.</li>
-          </ul>
-          <p>
-            We will approve link requests from these organizations if we decide
-            that: (a) the link would not make us look unfavorably to ourselves
-            or to our accredited businesses; (b) the organization does not have
-            any negative records with us; (c) the benefit to us from the
-            visibility of the hyperlink compensates the absence of{" "}
-            <span className="highlight preview_company_name">Company Name</span>
-            ; and (d) the link is in the context of general resource
-            information.
-          </p>
-          <p>
-            These organizations may link to our home page so long as the link:
-            (a) is not in any way deceptive; (b) does not falsely imply
-            sponsorship, endorsement or approval of the linking party and its
-            products or services; and (c) fits within the context of the linking
-            party's site.
-          </p>
-          <p>
-            If you are one of the organizations listed in paragraph 2 above and
-            are interested in linking to our website, you must inform us by
-            sending an e-mail to{" "}
-            <span className="highlight preview_company_name">Company Name</span>
-            . Please include your name, your organization name, contact
-            information as well as the URL of your site, a list of any URLs from
-            which you intend to link to our Website, and a list of the URLs on
-            our site to which you would like to link. Wait 2-3 weeks for a
-            response.
-          </p>
-          <p>Approved organizations may hyperlink to our Website as follows:</p>
-          <ul>
-            <li>By use of our corporate name; or</li>
-            <li>By use of the uniform resource locator being linked to; or</li>
-            <li>
-              By use of any other description of our Website being linked to
-              that makes sense within the context and format of content on the
-              linking party's site.
-            </li>
-          </ul>
-          <p>
-            No use of{" "}
-            <span className="highlight preview_company_name">Company Name</span>
-            's logo or other artwork will be allowed for linking absent a
-            trademark license agreement.
-          </p>
-          <h3>
-            <strong>iFrames</strong>
-          </h3>
-          <p>
-            Without prior approval and written permission, you may not create
-            frames around our Webpages that alter in any way the visual
-            presentation or appearance of our Website.
-          </p>
-          <h3>
-            <strong>Content Liability</strong>
-          </h3>
-          <p>
-            We shall not be hold responsible for any content that appears on
-            your Website. You agree to protect and defend us against all claims
-            that is rising on your Website. No link(s) should appear on any
-            Website that may be interpreted as libelous, obscene or criminal, or
-            which infringes, otherwise violates, or advocates the infringement
-            or other violation of, any third party rights.
-          </p>
-          <h3>
-            <strong>Reservation of Rights</strong>
-          </h3>
-          <p>
-            We reserve the right to request that you remove all links or any
-            particular link to our Website. You approve to immediately remove
-            all links to our Website upon request. We also reserve the right to
-            amen these terms and conditions and it's linking policy at any time.
-            By continuously linking to our Website, you agree to be bound to and
-            follow these linking terms and conditions.
-          </p>
-          <h3>
-            <strong>Removal of links from our website</strong>
-          </h3>
-          <p>
-            If you find any link on our Website that is offensive for any
-            reason, you are free to contact and inform us any moment. We will
-            consider requests to remove links but we are not obligated to or so
-            or to respond to you directly.
-          </p>
-          <p>
-            We do not ensure that the information on this website is correct, we
-            do not warrant its completeness or accuracy; nor do we promise to
-            ensure that the website remains available or that the material on
-            the website is kept up to date.
-          </p>
-          <h3>
-            <strong>Disclaimer</strong>
-          </h3>
-          <p>
-            To the maximum extent permitted by applicable law, we exclude all
-            representations, warranties and conditions relating to our website
-            and the use of this website. Nothing in this disclaimer will:
-          </p>
-          <ul>
-            <li>
-              limit or exclude our or your liability for death or personal
-              injury;
+            The competition is open to all undergraduate engineering students in Egypt who are graduating in the academic year 2023-2024 with a complete project idea and prototype.
             </li>
             <li>
-              limit or exclude our or your liability for fraud or fraudulent
-              misrepresentation;
+            The competition is open to all the graduate students who has graduated within the last 3 years [(2022-2023)-(2021-2022)-(2020-2021)] with a complete project idea and prototype.
             </li>
             <li>
-              limit any of our or your liabilities in any way that is not
-              permitted under applicable law; or
+            Only graduation projects that are complete and have been approved by the student's advisor will be accepted.
             </li>
             <li>
-              exclude any of our or your liabilities that may not be excluded
-              under applicable law.
+            Projects must be original and not have been submitted to any other competition.
             </li>
-          </ul>
-          <p>
-            The limitations and prohibitions of liability set in this Section
-            and elsewhere in this disclaimer: (a) are subject to the preceding
-            paragraph; and (b) govern all liabilities arising under the
-            disclaimer, including liabilities arising in contract, in tort and
-            for breach of statutory duty.
+            </ul>
+            <strong>
+            Submission
+            </strong>
+            <ul className="list-disc list-inside">
+            <li>
+            To submit your project, please visit the Egyptian Engineering Day website and complete the online registration form.
+            </li>
+            <li>
+            You will have to upload a short video presentation that summarizes your project.
+              <ul className="list-disc list-inside px-10 text-slate-600">
+                <li>
+                The video should be around 3 to 5 minutes.
+                </li>
+                <li>
+                The name of the project should be mentioned.
+                </li>
+                <li>
+                The problems you faced.
+                </li>
+                <li>
+                The solution.
+                </li>
+                <li>
+                What is applied by the tools and the technology.
+                </li>
+                <li>
+                The working prototype or simulation should be shown in the video.
+                </li>
+                <li>
+                Every team member’s role in the project.
+                </li>
+                <li>
+                Be sure to make the video link to be public shared in google drive.
+                </li>    
+              </ul>
+            </li>
+            
+            <li>
+            The deadline for first wave submissions is October 15, 2023.
+            </li>
+            <li>
+            The team lead (contact person) should fill in the form and make sure that all the submitted data is correct.
+            </li>
+            </ul>
+            <strong>
+            Judging
+            </strong>
+            <ul className="list-disc list-inside">
+            <li>
+            Projects will be judged by a panel of experts from industry and academia.
+            </li>
+            <li>
+            The judges will consider the following criteria:
+              <ul className="list-disc list-inside px-10 text-slate-600">
+                <li>
+                  Originality and innovation.
+                </li>
+                <li>
+                  Technical feasibility.      
+                </li>
+                <li>
+                  Social and economic impact.
+                </li>
+                <li>
+                  Clarity and presentation.              
+                </li>
+                <li>
+                  Teamwork.            
+                </li>
+                <li>
+                  Competitive edge & market research.
+                </li>
+              </ul>
+            </li>
+            </ul>
+            <strong>
+            Accommodation:
+            </strong>
+            <ul className="list-disc list-inside">
+              <li>
+                Accommodation option is only available for those who are participating from universities located outside the greater Cairo region (Cairo, Giza, Qalyubiyah, Helwan and 6th of October).
+              </li>
+              <li>
+                Basic registration allows accommodation for only 1 team member per project.
+              </li>
+              <li>
+                Accommodation places will be announced later.
+              </li>
+              <li>
+                The transportation from and to the hotels for those who have accommodation will have strict time, and you must stick to it.
+              </li>
+            </ul>
+            <strong>
+              Payment and Fees:
+            </strong>
+            <ul className="list-disc list-inside">
+              <li>
+                Payment of the fees will be through money transfer to our provided bank account which will be sent to all accepted projects after the filtration phase, this is the only way to pay your fees. Please do NOT pay the fees to anyone.
+              </li>
+              <li>
+                If the fees are not paid within the allowed days, which will be announced later, your application will be discarded, and you won’t be able to register again as an exhibitor for EED 2023.
+              </li>
+              <li>
+                No refund will be possible after the closure of the payment phase.
+              </li>
+              <li>
+                If your project passes the filtration phase, you'll have to upload a clear scanned copy of the cash payment receipt to your project account on our website later.
+              </li>
+              <li>
+                We will send a payment confirmation mail after checking your receipt and our bank account status.
+              </li>
+              <li>
+                Basic registration package for all teams will be <span className="font-semibold">500EGP</span> includes:
+                <Card className="h-full w-full mt-8 mb-10">
+                  <table className="w-full min-w-max table-auto text-left">
+                    <thead>
+                      <tr>
+                        {TABLE_HEAD1.map((head) => (
+                          <th
+                            key={head}
+                            className=" border-b border-blue-gray-100 bg-blue-gray-50 p-4"
+                          >
+                            <Typography
+                              variant="small"
+                              color="black"
+                              className="leading-none opacity-70"
+                            >
+                              {head}
+                            </Typography>
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {TABLE_ROWS1.map(({ item, quantity }, index) => {
+                        const isLast = index === TABLE_ROWS1.length - 1;
+                        const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
+            
+                        return (
+                          <tr key={item}>
+                            <td className={classes}>
+                              <Typography
+                                variant="small"
+                                color="blue-gray"
+                                className="font-normal"
+                              >
+                                {item}
+                              </Typography>
+                            </td>
+                            <td className={classes}>
+                              <Typography
+                                variant="small"
+                                color="blue-gray"
+                                className="font-normal"
+                              >
+                                {quantity}
+                              </Typography>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </Card>
+                
+              </li>
+              <li>
+                Any team can add items to package as needed as follows:
+                  
+                <Card className="h-full w-full mt-8 mb-10">
+                  <table className="w-full min-w-max table-auto text-left">
+                    <thead>
+                      <tr>
+                        {TABLE_HEAD2.map((head) => (
+                          <th
+                            key={head}
+                            className=" border-b border-blue-gray-100 bg-blue-gray-50 p-4"
+                          >
+                            <Typography
+                              variant="small"
+                              color="black"
+                              className="leading-none opacity-70"
+                            >
+                              {head}
+                            </Typography>
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {TABLE_ROWS2.map(({ item, quantity,price }, index) => {
+                        const isLast = index === TABLE_ROWS2.length - 1;
+                        const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
+            
+                        return (
+                          <tr key={item}>
+                            <td className={classes}>
+                              <Typography
+                                variant="small"
+                                color="blue-gray"
+                                className="font-normal"
+                              >
+                                {item}
+                              </Typography>
+                            </td>
+                            <td className={classes}>
+                              <Typography
+                                variant="small"
+                                color="blue-gray"
+                                className="font-normal"
+                              >
+                                {quantity}
+                              </Typography>
+                            </td>
+                            <td className={classes}>
+                              <Typography
+                                variant="small"
+                                color="blue-gray"
+                                className="font-normal"
+                              >
+                                {price}
+                              </Typography>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </Card>      
+              </li>
+            </ul>
+            <strong>
+              Prizes:
+            </strong>
+            <ul className="list-disc list-inside">
+              <li>
+              Prizes will be announced soon.
+              </li>
+              <li>
+              All participants in the final competition will receive a certificate of participation.
+              </li>
+            </ul>
+            <strong>
+              Other Conditions:
+            </strong>
+            <ul className="list-disc list-inside">
+              <li>
+              By submitting your project, you agree to allow the Egyptian Engineering Day Organizing Committee to use your project for promotional purposes.
+             </li>
+              <li>
+                If the fees are not paid within the allowed days, which will be announced later, your application will be discarded, and you won’t be able to register again as an exhibitor for EED 2023.
+              </li>
+              <li>
+              The Organizing Committee reserves the right to disqualify any project that is found to be in violation of the competition rules or that is deemed to be inappropriate.
+              </li>
+            </ul>
           </p>
-          <p>
-            As long as the website and the information and services on the
-            website are provided free of charge, we will not be liable for any
-            loss or damage of any nature.
+        
+          <p className="mt-10">
+            <strong>
+              Acceptance of Terms and Conditions
+            </strong>
+              <p>
+              By submitting your project, you agree to be bound by the terms and conditions of this competition.
+              Please note: The above terms and conditions are for illustrative purposes only. The actual terms and conditions for the Egyptian Engineering Day Graduation Project Competition may vary. Please consult the official website for the most up-to-date information.
+              </p>
           </p>
         </ScrollArea>
         <StepButtons active={active} setActive={setActive} />
