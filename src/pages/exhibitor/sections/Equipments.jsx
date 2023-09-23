@@ -31,10 +31,13 @@ function Equipments({ active, setActive, data, getData }) {
   const getItemFreeQuantity = (id) => {
     return data.find((item) => item.id === id)?.free_quantity;
   };
-  const totalPrice = itemsValues.reduce((accumulator, object) => {
-    return accumulator + +object.quantity * getItemPrice(object.item_id);
-  }, 0);
+  const totalPrice = itemsValues
+    .filter((item) => item.item_id !== 1)
+    .reduce((accumulator, object) => {
+      return accumulator + +object.quantity * getItemPrice(object.item_id);
+    }, 0);
 
+  console.log({ itemsValues });
   const freeItemsPrice = itemsValues.reduce((accumulator, object) => {
     return (
       accumulator +
@@ -154,19 +157,21 @@ function Equipments({ active, setActive, data, getData }) {
           <Flex className="flex-col ">
             <Flex className="text-lg font-semibold">
               <span>Sub Total:</span>
-              <span className="ml-3 font-bold">{totalPrice} L.E</span>
+              <span className="ml-3 font-bold">
+                {totalPrice + getItemPrice(1)} L.E
+              </span>
             </Flex>
             <Flex className="text-lg font-semibold">
               <span> Discount:</span>
               <span className="ml-3 font-bold text-red-500">
-                - {freeItemsPrice} L.E
+                {freeItemsPrice} L.E
               </span>
             </Flex>
           </Flex>
           <Text className="text-4xl font-bold">
             Total:
             <span className="ml-3 text-primary">
-              {totalPrice - freeItemsPrice} L.E
+              {totalPrice - freeItemsPrice + getItemPrice(1)} L.E
             </span>
           </Text>
         </Flex>

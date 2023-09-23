@@ -2,6 +2,7 @@
 import { Flex } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import StepButtons from "../../../components/StepButtons";
 import { CreateProject } from "../../../services/project";
@@ -13,7 +14,7 @@ import SupervisorInfo from "./submission/SupervisorInfo";
 function ProjectSubmit({ data, active, setActive }) {
   const [savedData, setSavedData] = useState({});
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     setSavedData(JSON.parse(localStorage.getItem("data")));
   }, []);
@@ -23,6 +24,7 @@ function ProjectSubmit({ data, active, setActive }) {
     CreateProject(savedData)
       .then(() => {
         localStorage.clear("data");
+        navigate("/");
         setLoading(false);
       })
       .catch((err) => {
