@@ -4,6 +4,10 @@ import React, { useEffect, useState } from "react";
 
 function ItemsInfo({ data }) {
   const [savedData, setSavedData] = useState({});
+
+  const getItemPrice = (id) => {
+    return data.find((item) => item.id === id)?.price;
+  };
   useEffect(() => {
     setSavedData(JSON.parse(localStorage.getItem("data")));
   }, []);
@@ -15,7 +19,7 @@ function ItemsInfo({ data }) {
         </Text>
         <Text className="pb-4 text-2xl font-semibold ">
           Total Price:{" "}
-          <span className=" text-primary">{savedData.totalPrice} L.E</span>
+          <span className=" text-primary">{savedData?.totalPrice} L.E</span>
         </Text>
       </Flex>
       <table className="table">
@@ -26,8 +30,9 @@ function ItemsInfo({ data }) {
           </tr>
         </thead>
         <tbody>
-          {savedData &&
-            savedData?.items?.map((item) => {
+          {savedData?.items
+            ?.filter((item) => getItemPrice(item.item_id) > 0)
+            .map((item) => {
               return (
                 <tr
                   key={item.item_id}
@@ -36,6 +41,7 @@ function ItemsInfo({ data }) {
                   <td className="">
                     {data?.find((x) => x.id === item.item_id)?.name}
                   </td>
+
                   <td className="font-bold text-center">{item.quantity}</td>
                 </tr>
               );

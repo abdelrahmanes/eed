@@ -57,6 +57,10 @@ function Survey({ active, setActive, getData, data }) {
                 <Text className="mb-4 font-bold text-neutral-700">
                   {question.title}
                 </Text>
+                <div
+                  className="mb-2 text-xs text-primary"
+                  dangerouslySetInnerHTML={{ __html: question.description }}
+                />
                 <Textarea
                   {...register(`answers.${index}.answer`, {
                     required: "Your Answer is required",

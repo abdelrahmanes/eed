@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Flex } from "@mantine/core";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
 import StepButtons from "../../../components/StepButtons";
 import { CreateProject } from "../../../services/project";
 import ItemsInfo from "./submission/ItemsInfo";
@@ -9,13 +11,38 @@ import ProjectInfo from "./submission/ProjectInfo";
 import SupervisorInfo from "./submission/SupervisorInfo";
 
 function ProjectSubmit({ data, active, setActive }) {
-  const savedData = JSON.parse(localStorage.getItem("data"));
+  const [savedData, setSavedData] = useState({});
+  const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    setSavedData(JSON.parse(localStorage.getItem("data")));
+  }, []);
   const { handleSubmit } = useForm({});
   const onsubmit = () => {
+    setLoading(true);
     CreateProject(savedData)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then(() => {
+        localStorage.clear("data");
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        toast.error(
+          <div
+            dangerouslySetInnerHTML={{ __html: err.response.data.errors }}
+          />,
+          {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          }
+        );
+      });
   };
   return (
     <form onSubmit={handleSubmit(onsubmit)}>
@@ -24,8 +51,13 @@ function ProjectSubmit({ data, active, setActive }) {
         <MembersInfo savedData={savedData} />
         <SupervisorInfo savedData={savedData} />
         <ItemsInfo savedData={savedData} data={data.items} />
-
-        <StepButtons active={active} setActive={setActive} last />
+        <ToastContainer />
+        <StepButtons
+          active={active}
+          setActive={setActive}
+          last
+          loading={loading}
+        />
       </Flex>
     </form>
   );

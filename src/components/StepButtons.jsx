@@ -1,6 +1,6 @@
-import { Flex } from "@mantine/core";
+import { Flex, UnstyledButton } from "@mantine/core";
 
-function StepButtons({ active, setActive, last }) {
+function StepButtons({ active, setActive, last, loading }) {
   return (
     <Flex className="justify-between w-full mt-6">
       {active !== 0 && (
@@ -14,12 +14,20 @@ function StepButtons({ active, setActive, last }) {
           Previous
         </button>
       )}
-      <button
+      <UnstyledButton
         type="submit"
-        className="px-4 py-2 ml-auto text-white rounded-md bg-primary w-fit"
+        loading={loading}
+        disabled={loading}
+        className="px-4 py-2 ml-auto text-white rounded-md bg-primary w-fit disabled:bg-primaryHover"
       >
-        {last ? "Submit" : "Next"}
-      </button>
+        {loading ? (
+          <span className="animate-bounce">loading...</span>
+        ) : last ? (
+          "Submit"
+        ) : (
+          "Next"
+        )}
+      </UnstyledButton>
     </Flex>
   );
 }
