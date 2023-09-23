@@ -213,7 +213,7 @@ function ProjectMembers({ setActive, active, getData, data }) {
     });
   };
 
-  const membersValue = getValues().members;
+  const membersValue = getValues()?.members;
   return (
     <StepBoxWrapper title={"Project Members"} className={"!w-3/4"}>
       <form
@@ -345,7 +345,7 @@ function ProjectMembers({ setActive, active, getData, data }) {
                   <Switch
                     {...register(`members.${index}.is_contact`)}
                     checked={watch(`members.${index}.is_contact`)}
-                    disabled={membersValue.some(
+                    disabled={membersValue?.some(
                       (member, i) => member.is_contact && index !== i
                     )}
                     label="Team Leader?"
@@ -391,7 +391,7 @@ function ProjectMembers({ setActive, active, getData, data }) {
                         "school" && (
                         <TextInput
                           {...register(`members.${index}.school_name`)}
-                          error={errors.members?.[index]?.school_name?.message}
+                          error={errors?.members?.[index]?.school_name?.message}
                           classNames={{
                             input:
                               "px-4 py-[22px] rtl:text-right   bg-white rounded-sm placeholder:text-neutral-400 mt-1",
@@ -415,7 +415,7 @@ function ProjectMembers({ setActive, active, getData, data }) {
                               trigger(`members.${index}.university_id`);
                             }}
                             error={errors?.members?.[index]?.university_id}
-                            data={data.cities
+                            data={data?.cities
                               ?.find((target) => {
                                 return (
                                   target.id ===
