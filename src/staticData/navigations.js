@@ -4,21 +4,10 @@ const navigations = [
   {
     id: 3,
     title: "Registeration",
-    role: "button",
-    path: "#",
+    role: "link",
+    path: "/registration",
     subLinks: [
-      {
-        id: 1,
-        title: "Visitor",
-        role: "link",
-        path: "/visitor-register",
-      },
-      {
-        id: 2,
-        title: "Exhibitor",
-        role: "link",
-        path: "/exhibitor-register",
-      },
+      
     ],
   },
   { id: 4, title: "Sessions", role: "link", subLinks: [], path: "/session" },

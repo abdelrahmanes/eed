@@ -5,6 +5,7 @@ import ExhibitorRegisteration from "./pages/exhibitor/ExhibitorRegisteration";
 import FAQ from "./pages/faq/FAQ";
 import Home from "./pages/home/Home";
 import Session from "./pages/session/Session";
+import Registration from './pages/registeration/Registeration'
 import Store from "./pages/store/Store";
 import VisitorRegisteration from "./pages/visitor/VisitorRegisteration";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/store" element={<Store />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/registration" element={<Registration/>} />
       </Routes>
     </BrowserRouter>
   );
