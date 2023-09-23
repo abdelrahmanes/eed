@@ -27,22 +27,6 @@ const TABLE_ROWS2 = [
 
 function TermsAndConditions({ active, setActive }) {
   
-  // const rows1 = elements1.map((element) => {
-  //   return <Table.Tr key={element.item}>
-  //     <Table.Td>{element.item}</Table.Td>
-  //     <Table.Td>{element.quantity}</Table.Td>
-  //   </Table.Tr> 
-  // });
-  
-  // const rows2 = elements2.map((element) => (
-  //   <Table.Tr key={element.item}>
-  //     <Table.Td>{element.item}</Table.Td>
-  //     <Table.Td>{element.quantity}</Table.Td>
-  //     <Table.Td>{element.price}</Table.Td>
-  //   </Table.Tr>
-  // ));
-
-
 
   onsubmit = () => {};
 
@@ -62,7 +46,7 @@ function TermsAndConditions({ active, setActive }) {
             <span className="font-medium tracking-wide	"> EED</span>
             !
           </p>
-          <p>
+          <div>
             <ul className="list-disc list-inside">
             <li>
                Please note that this online registration is only an initial step in your team & participation process in EED 2023 as a graduation project. And then there will be a selection process based on the submitted data.
@@ -95,8 +79,6 @@ function TermsAndConditions({ active, setActive }) {
               Any project that violates our instructions, rules or regulations will be eliminated from the competition. 
             </li>          
             </ul>
-          </p>
-          <p>
             
 
             <strong>Special Notes:</strong>
@@ -385,9 +367,8 @@ function TermsAndConditions({ active, setActive }) {
               The Organizing Committee reserves the right to disqualify any project that is found to be in violation of the competition rules or that is deemed to be inappropriate.
               </li>
             </ul>
-          </p>
-        
-          <p className="mt-10">
+
+            <div className="mt-10">
             <strong>
               Acceptance of Terms and Conditions
             </strong>
@@ -395,7 +376,9 @@ function TermsAndConditions({ active, setActive }) {
               By submitting your project, you agree to be bound by the terms and conditions of this competition.
               Please note: The above terms and conditions are for illustrative purposes only. The actual terms and conditions for the Egyptian Engineering Day Graduation Project Competition may vary. Please consult the official website for the most up-to-date information.
               </p>
-          </p>
+            </div>
+        
+          </div>
         </ScrollArea>
         <StepButtons active={active} setActive={setActive} />
       </form>
