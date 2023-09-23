@@ -28,8 +28,18 @@ function Equipments({ active, setActive, data, getData }) {
   const getItemPrice = (id) => {
     return data.find((item) => item.id === id)?.price;
   };
+  const getItemFreeQuantity = (id) => {
+    return data.find((item) => item.id === id)?.free_quantity;
+  };
   const totalPrice = itemsValues.reduce((accumulator, object) => {
     return accumulator + +object.quantity * getItemPrice(object.item_id);
+  }, 0);
+
+  const freeItemsPrice = itemsValues.reduce((accumulator, object) => {
+    return (
+      accumulator +
+      getItemFreeQuantity(object.item_id) * getItemPrice(object.item_id)
+    );
   }, 0);
 
   const onsubmit = (submittedData) => {
@@ -52,7 +62,7 @@ function Equipments({ active, setActive, data, getData }) {
                 >
                   <Text className="text-lg font-bold">{item.name}</Text>
                   <div
-                    className="text-xs"
+                    className="text-xs font-semibold text-primary"
                     dangerouslySetInnerHTML={{ __html: item?.description }}
                   />
                   <Flex className="items-center justify-between w-full">
@@ -140,10 +150,26 @@ function Equipments({ active, setActive, data, getData }) {
             })}
           </Flex>
         </ScrollArea>
-        <Text className="pt-4 text-4xl font-bold border-t border-neutral-400">
-          Total:
-          <span className="ml-3 text-primary">{totalPrice} L.E</span>
-        </Text>
+        <Flex className="flex-col gap-6 pt-4 border-t mb-7 border-neutral-400">
+          <Flex className="flex-col ">
+            <Flex className="text-lg font-semibold">
+              <span>Sub Total:</span>
+              <span className="ml-3 font-bold">{totalPrice} L.E</span>
+            </Flex>
+            <Flex className="text-lg font-semibold">
+              <span> Discount:</span>
+              <span className="ml-3 font-bold text-red-500">
+                - {freeItemsPrice} L.E
+              </span>
+            </Flex>
+          </Flex>
+          <Text className="text-4xl font-bold">
+            Total:
+            <span className="ml-3 text-primary">
+              {totalPrice - freeItemsPrice} L.E
+            </span>
+          </Text>
+        </Flex>
         <StepButtons active={active} setActive={setActive} />
       </form>
     </StepBoxWrapper>
