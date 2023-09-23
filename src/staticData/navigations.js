@@ -5,10 +5,8 @@ const navigations = [
     id: 3,
     title: "Registeration",
     role: "link",
-    path: "/registration",
-    subLinks: [
-      
-    ],
+    path: "/registeration",
+    subLinks: [],
   },
   { id: 4, title: "Sessions", role: "link", subLinks: [], path: "/session" },
   { id: 5, title: "Store", role: "link", subLinks: [], path: "/store" },
