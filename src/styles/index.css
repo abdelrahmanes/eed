@@ -6,3 +6,31 @@ body {
   min-height: 100vh !important;
   background-color: #efefef;
 }
+.about-us-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 4px 1cap rgba(0, 0, 0, 0.1);
+}
+
+
+.about-us-text {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #666666;
+}
+@media (max-width: 600px) {
+  .about-us-container {
+    padding: 10px;
+    margin: 10px auto;
+  }
+
+
+  .about-us-text {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+}

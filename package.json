@@ -6,6 +6,8 @@
     "name": "Abdelrahman Elshershaby",
     "email": "abdelrahmanelshershaby@gmail.com"
   },
+  "homepage": "."
+  ,
   "type": "module",
   "scripts": {
     "dev": "vite",

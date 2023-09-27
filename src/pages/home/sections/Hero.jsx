@@ -15,27 +15,28 @@ function Hero() {
     {
       id: 1,
       title: "Egyptian Engineering Day 2023",
-      description: "Lorem ipsum Dolor Sit",
+      description: "Nexus of Digital Evolution",
       image: "bg-footer-texture",
     },
     {
       id: 2,
       title: "Egyptian Engineering Day 2023",
-      description: "Lorem ipsum Dolor Sit",
+      description: "Nexus of Digital Evolution",
       image: "bg-footer-texture",
     },
     {
       id: 3,
       title: "Egyptian Engineering Day 2023",
-      description: "Lorem ipsum Dolor Sit",
+      description: "Nexus of Digital Evolution",
       image: "bg-footer-texture",
     },
     {
       id: 4,
       title: "Egyptian Engineering Day 2023",
-      description: "Lorem ipsum Dolor Sit",
+      description: "Nexus of Digital Evolution",
       image: "bg-footer-texture",
     },
+    
   ];
   return (
     <Slider {...settings} className="max-w-full overflow-hidden">

@@ -1,7 +1,9 @@
-import { ScrollArea,} from "@mantine/core";
+import { ScrollArea, Checkbox, Popover, Text, Modal} from "@mantine/core";
+import { useDisclosure } from '@mantine/hooks';
 import StepBoxWrapper from "../../../components/StepBoxWrapper";
 import StepButtons from "../../../components/StepButtons";
 import { Card, Typography } from "@material-tailwind/react";
+import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const TABLE_HEAD1=["Item", "Quantity"]
@@ -27,8 +29,10 @@ const TABLE_ROWS2 = [
 
 function TermsAndConditions({ active, setActive }) {
   
-
-  onsubmit = () => {};
+  const [checked, setChecked] = useState(false);
+  // const [error, setError] = useState(false);
+  const [opened, { open, close }] = useDisclosure(false);
+  // onsubmit = (e) => {e.preventDefault()};
 
   return (
     <StepBoxWrapper title={"Terms and conditions"}>
@@ -36,7 +40,7 @@ function TermsAndConditions({ active, setActive }) {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          setActive(active + 1);
+          checked ? setActive(active + 1): open();
         }}
         id="placeholders"
       >
@@ -377,10 +381,18 @@ function TermsAndConditions({ active, setActive }) {
               Please note: The above terms and conditions are for illustrative purposes only. The actual terms and conditions for the Egyptian Engineering Day Graduation Project Competition may vary. Please consult the official website for the most up-to-date information.
               </p>
             </div>
-        
           </div>
         </ScrollArea>
+        <Checkbox className="m-10" checked={checked}  label="I've read agreed to Terms & Conditions of EED" onChange={(event) => setChecked(event.currentTarget.checked)} />
+        <Modal size={320}         
+         transitionProps={{ transition: 'fade', duration: 200 }}
+         overlayProps={{blur: 3}}
+         yOffset="20vh"
+         opened={opened} onClose={close} title="Agreement Error">
+         <Text size="s">Please read and agree to Terms & Conditions to compelete registeration!</Text>
+        </Modal>
         <StepButtons active={active} setActive={setActive} />
+
       </form>
     </StepBoxWrapper>
   );

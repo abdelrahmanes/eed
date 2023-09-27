@@ -36,7 +36,7 @@ function Home() {
     {
       id: 1,
       label: "Projects",
-      total: 5000,
+      total: 3500,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -56,8 +56,8 @@ function Home() {
     },
     {
       id: 2,
-      label: "Sponsors",
-      total: 2000,
+      label: "Years",
+      total: 20,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ function Home() {
     {
       id: 3,
       label: "Universities",
-      total: 500,
+      total: 45,
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +163,7 @@ function Home() {
         <Text className="my-10 text-4xl font-bold">What Happened</Text>
         <Grid columns={12} grow>
           <Grid.Col span={12}>
-            <AutoIncrement total={9500} label={"Total Attendance"}>
+            <AutoIncrement total={10000} label={"Total Attendance"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -225,7 +225,7 @@ function Home() {
         <Grid columns={12} gutter={"0"}>
           <Grid.Col span={12} lg={6} className="flex flex-col gap-6 ">
             <Flex className="flex flex-col">
-              <Text>Address: Al-Azhar Conference Center (ACC)</Text>
+              <Text>Address: Nile University - Cairo </Text>
               <Text>
                 More Info: <a href="#"> Click Here</a>
               </Text>

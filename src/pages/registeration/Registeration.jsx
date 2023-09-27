@@ -95,7 +95,6 @@ export default function Registeration() {
                 radius="lg"
                 size="lg"
               >
-                {" "}
                 Register
               </Button>
             </NavLink>
