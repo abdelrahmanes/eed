@@ -1,4 +1,4 @@
-import ComingSoon from "../../components/ComingSoon";
+// import ComingSoon from "../../components/ComingSoon";
 import SubPageHero from "../../components/SubPageHero";
 import Layout from "../../layout";
 function AboutUs() {

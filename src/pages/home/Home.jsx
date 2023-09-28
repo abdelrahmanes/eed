@@ -1,9 +1,9 @@
 import { Flex, Grid, Text } from "@mantine/core";
 import { Fragment } from "react";
 import Slider from "react-slick";
-// import eed from "../../assets/images/event2.png";
 import Theme from "../../assets/images/event.png";
-import Theme2 from "../../assets/images/event2.png";
+// import Theme2 from "../../assets/images/event2.png";
+import EED from "../../assets/images/eed.png";
 import ieee from "../../assets/images/ieee.png";
 import yp from "../../assets/images/young-professionals.png";
 import AutoIncrement from "../../components/AutoIncrement";
@@ -20,7 +20,7 @@ function Home() {
     },
     {
       id: 2,
-      image: Theme2,
+      image: EED,
       title: "About EED",
       description:
       "The Egyptian Engineering Day, was first founded in the annual Egyptian Student Branches Meeting, ESBM 2002. The EED was suggested to be an expo for engineering graduation projects. EED has become a special national event that receives deliberation from the Egyptian government, academia, industry and media with both local and regional recognition. It's considered as the annual nexus for engineers where engineering professionals meet new associates in the field, share ideas, collaborate on projects and learn new things.",
@@ -111,11 +111,11 @@ function Home() {
   };
   const GalleryPics = [
     { id: 1, image: Theme },
-    { id: 2, image: Theme2 },
+    { id: 2, image: Theme },
     { id: 3, image: Theme },
-    { id: 4, image: Theme2 },
+    { id: 4, image: Theme },
     { id: 5, image: Theme },
-    { id: 6, image: Theme2 },
+    { id: 6, image: Theme },
     { id: 7, image: Theme },
   ];
   return (
