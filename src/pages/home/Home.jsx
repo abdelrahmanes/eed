@@ -1,8 +1,9 @@
 import { Flex, Grid, Text } from "@mantine/core";
 import { Fragment } from "react";
 import Slider from "react-slick";
-import eed from "../../assets/images/eed_logo_dark.png";
-import event from "../../assets/images/event.png";
+// import eed from "../../assets/images/event2.png";
+import Theme from "../../assets/images/event.png";
+import Theme2 from "../../assets/images/event2.png";
 import ieee from "../../assets/images/ieee.png";
 import yp from "../../assets/images/young-professionals.png";
 import AutoIncrement from "../../components/AutoIncrement";
@@ -19,7 +20,7 @@ function Home() {
     },
     {
       id: 2,
-      image: eed,
+      image: Theme2,
       title: "About EED",
       description:
       "The Egyptian Engineering Day, was first founded in the annual Egyptian Student Branches Meeting, ESBM 2002. The EED was suggested to be an expo for engineering graduation projects. EED has become a special national event that receives deliberation from the Egyptian government, academia, industry and media with both local and regional recognition. It's considered as the annual nexus for engineers where engineering professionals meet new associates in the field, share ideas, collaborate on projects and learn new things.",
@@ -109,13 +110,13 @@ function Home() {
     pauseOnHover: true,
   };
   const GalleryPics = [
-    { id: 1, image: event },
-    { id: 2, image: event },
-    { id: 3, image: event },
-    { id: 4, image: event },
-    { id: 5, image: event },
-    { id: 6, image: event },
-    { id: 7, image: event },
+    { id: 1, image: Theme },
+    { id: 2, image: Theme2 },
+    { id: 3, image: Theme },
+    { id: 4, image: Theme2 },
+    { id: 5, image: Theme },
+    { id: 6, image: Theme2 },
+    { id: 7, image: Theme },
   ];
   return (
     <Layout>
@@ -233,7 +234,7 @@ function Home() {
           </Grid.Col>
           <Grid.Col span={12} lg={6}>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.250855763736!2d31.322500276019145!3d30.058343117911303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583e5d94c66301%3A0x78353e8be3e413a7!2sAl-Azhar%20Conference%20Centre!5e0!3m2!1sen!2seg!4v1693675018384!5m2!1sen!2seg"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13819.438800553911!2d30.9868612!3d30.0121847!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585754b9cba23f%3A0xdfbc09a0a87f3e86!2z2KzYp9mF2LnYqSDYp9mE2YbZitmE!5e0!3m2!1sar!2seg!4v1695822159483!5m2!1sar!2seg"
               width="600"
               height="450"
               className="w-full px-0 border border-gray-200 rounded-md lg:pr-0"

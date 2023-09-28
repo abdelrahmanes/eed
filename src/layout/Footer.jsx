@@ -15,11 +15,11 @@ function Footer() {
             </NavLink>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            <div>
-              <h2 className="mb-6 text-sm font-semibold text-white uppercase ">
+          <div className="generalHov">
+              <h2 className="mb-6 text-sm font-semibold text-black uppercase ">
                 Quick Links
               </h2>
-              <ul className="font-thin text-gray-300 ">
+              <ul className=" text-black ">
                 {navigations.map(({ id, path, role, subLinks, title }) => {
                   return (
                     <NavbarLink
@@ -35,19 +35,19 @@ function Footer() {
               </ul>
             </div>
 
-            <div>
-              <h2 className="mb-6 text-sm font-semibold text-white uppercase ">
+            <div className="generalHov">
+              <h2 className="mb-6 text-sm font-semibold text-black uppercase ">
                 Contact information
               </h2>
-              <ul className="font-thin text-gray-300 ">
+              <ul className=" text-black hover:font-semibold text-white ">
                 <li className="mb-4">
                   <a
-                    href="https://www.azhar.eg/magmaa/acc"
+                    href="https://nu.edu.eg/"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:underline"
                   >
-                    Al Azhar Conference Center (ACC)
+                    Nile University (NU)
                   </a>
                 </li>
               </ul>

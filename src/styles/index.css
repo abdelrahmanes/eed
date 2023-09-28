@@ -14,8 +14,13 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 1cap rgba(0, 0, 0, 0.1);
 }
-
-
+.generalHov{
+  padding: 10px;
+  border-radius: 20px;
+}
+.generalHov:hover{
+  background: rgba(0, 220, 200, 0.4);
+}
 .about-us-text {
   font-size: 18px;
   line-height: 1.6;

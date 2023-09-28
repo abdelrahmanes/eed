@@ -14,26 +14,26 @@ function Hero() {
   const slides = [
     {
       id: 1,
-      title: "Egyptian Engineering Day 2023",
-      description: "Nexus of Digital Evolution",
+      title: "",
+      description: "",
       image: "bg-footer-texture",
     },
     {
       id: 2,
-      title: "Egyptian Engineering Day 2023",
-      description: "Nexus of Digital Evolution",
+      title: "",
+      description: "",
       image: "bg-footer-texture",
     },
     {
       id: 3,
-      title: "Egyptian Engineering Day 2023",
-      description: "Nexus of Digital Evolution",
+      title: "",
+      description: "",
       image: "bg-footer-texture",
     },
     {
       id: 4,
-      title: "Egyptian Engineering Day 2023",
-      description: "Nexus of Digital Evolution",
+      title: "",
+      description: "",
       image: "bg-footer-texture",
     },
     

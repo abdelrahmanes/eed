@@ -13,19 +13,20 @@ function AboutUs() {
           the IEEE Egypt Section, and it is sponsored by a number of companies
           and organizations.
         </p>
-        <p className="about-us-text">
+        <div className="about-us-text">
+          <p className="about-us-text">
           EED is a major event in the Egyptian engineering calendar. It is an
           opportunity for students to showcase their work to potential
           employers, and it is also a great opportunity for engineers to learn
           about the latest trends and developments in the field. EED features a
-          number of events, including:
+          number of events, including:</p>
           <ul className="list-disc list-inside m-5">
             <li>A competition for student engineering projects.</li>
             <li>Technical workshops and presentations.</li>
             <li>A career fair.</li>
             <li> A social networking event.</li>
           </ul>
-        </p>
+        </div>
         <p className="about-us-text">
           EED is a valuable event for both students and engineers. It is a great
           way to learn about the latest engineering trends and developments, and
@@ -33,7 +34,7 @@ function AboutUs() {
           field.
         </p>
 
-        <p className="about-us-text">
+        <div className="about-us-text">
           Here are some of the benefits of attending Egyptian Engineering Day:
           <ul className="list-disc list-inside m-5">
             <li>
@@ -64,7 +65,7 @@ function AboutUs() {
               </ul>
             </li>
           </ul>
-        </p>
+        </div>
         <p className="about-us-text">
           If you are an engineer or a student interested in engineering, I
           encourage you to attend Egyptian Engineering Day. It is a great event
