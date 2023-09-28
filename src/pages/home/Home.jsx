@@ -151,7 +151,7 @@ function Home() {
                     <Text className="text-base">{section.description}</Text>
                   </Grid.Col>
                   <Grid.Col span={12} lg={6} className="px-16 bg-white ">
-                    <img src={section.image} className="m-auto mt-4" />
+                    <img src={section.image} className="m-auto mt-4 fullWidth" />
                   </Grid.Col>
                 </>
               )}
