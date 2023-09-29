@@ -5,6 +5,7 @@
 body {
   min-height: 100vh !important;
   background-color: #efefef;
+  background-repeat: no-repeat;
 }
 .about-us-container {
   max-width: 800px;
@@ -19,7 +20,7 @@ body {
   border-radius: 20px;
 }
 .generalHov:hover{
-  background: rgba(0, 220, 200, 0.4);
+  background: rgba(0, 0, 0, 0.6);
 }
 .about-us-text {
   font-size: 18px;
@@ -38,4 +39,8 @@ body {
     font-size: 11px;
     margin-bottom: 10px;
   }
+}
+.bg-footer-image{
+  background-image: url(../assets/images/event3.png);
+  background-repeat: no-repeat;
 }

@@ -1,4 +1,5 @@
 import Slider from "react-slick";
+
 function Hero() {
   const settings = {
     dots: true,
@@ -47,7 +48,7 @@ function Hero() {
             className="relative flex items-center justify-center w-full"
           >
             <div
-              className={`flex flex-col items-center justify-center h-screen gap-6 text-white bg-center ${slide.image}`}
+              className={`flex flex-col items-center bg-no-repeat bg-cover justify-center h-screen gap-6 text-white bg-center ${slide.image}`}
             >
               <h1 className="text-6xl ">{slide.title}</h1>
               <p className="text-3xl">{slide.description}</p>

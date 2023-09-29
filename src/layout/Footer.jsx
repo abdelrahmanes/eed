@@ -5,7 +5,7 @@ import navigations from "../staticData/navigations";
 
 function Footer() {
   return (
-    <footer className="bg-white bg-center bg-no-repeat bg-cover bg-footer-texture px-auto">
+    <footer className="bg-white bg-center bg-no-repeat bg-cover bg-footer-image px-auto">
       <div className="w-full p-4 py-6 mx-auto max-w-screen-2xl lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -16,10 +16,10 @@ function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
           <div className="generalHov">
-              <h2 className="mb-6 text-sm font-semibold text-black uppercase ">
+              <h2 className="mb-6 text-sm font-semibold text-white uppercase ">
                 Quick Links
               </h2>
-              <ul className=" text-black ">
+              <ul className=" text-white ">
                 {navigations.map(({ id, path, role, subLinks, title }) => {
                   return (
                     <NavbarLink
@@ -36,10 +36,10 @@ function Footer() {
             </div>
 
             <div className="generalHov">
-              <h2 className="mb-6 text-sm font-semibold text-black uppercase ">
+              <h2 className="mb-6 text-sm font-semibold text-white uppercase ">
                 Contact information
               </h2>
-              <ul className=" text-black hover:font-semibold text-white ">
+              <ul className=" text-white hover:font-semibold text-white ">
                 <li className="mb-4">
                   <a
                     href="https://nu.edu.eg/"
@@ -49,8 +49,8 @@ function Footer() {
                   >
                     Nile University (NU)
                   </a>
-                </li>
-              </ul>
+                  </li>
+                </ul>
             </div>
           </div>
         </div>

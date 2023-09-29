@@ -1,8 +1,8 @@
 import { Flex, Grid, Text } from "@mantine/core";
 import { Fragment } from "react";
 import Slider from "react-slick";
-import Theme from "../../assets/images/event.png";
-// import Theme2 from "../../assets/images/event2.png";
+// import Theme from "../../assets/images/event.png";
+import FooterBg from "../../assets/images/event3.png";
 import EED from "../../assets/images/eed.png";
 import ieee from "../../assets/images/ieee.png";
 import yp from "../../assets/images/young-professionals.png";
@@ -98,26 +98,26 @@ function Home() {
       ),
     },
   ];
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    pauseOnHover: true,
-  };
-  const GalleryPics = [
-    { id: 1, image: Theme },
-    { id: 2, image: Theme },
-    { id: 3, image: Theme },
-    { id: 4, image: Theme },
-    { id: 5, image: Theme },
-    { id: 6, image: Theme },
-    { id: 7, image: Theme },
-  ];
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   autoplay: true,
+  //   autoplaySpeed: 3000,
+  //   arrows: true,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 1,
+  //   pauseOnHover: true,
+  // };
+  // const GalleryPics = [
+  //   { id: 1, image: Theme },
+  //   { id: 2, image: Theme },
+  //   { id: 3, image: Theme },
+  //   { id: 4, image: Theme },
+  //   { id: 5, image: Theme },
+  //   { id: 6, image: Theme },
+  //   { id: 7, image: Theme },
+  // ];
   return (
     <Layout>
       <Hero />
@@ -198,7 +198,7 @@ function Home() {
         </Grid>
       </Flex>
       {/* Gallery Section */}
-      <Flex className="flex-col gap-6 py-10 text-center border-b border-gray-300">
+      {/* <Flex className="flex-col gap-6 py-10 text-center border-b border-gray-300">
         <Text className="mb-10 text-4xl font-bold">Gallery</Text>
         <Slider
           {...settings}
@@ -217,7 +217,7 @@ function Home() {
             );
           })}
         </Slider>
-      </Flex>
+      </Flex> */}
       {/* venue section */}
       <Flex className="flex-col p-10">
         <Text className="mb-10 text-4xl font-bold text-center ">
