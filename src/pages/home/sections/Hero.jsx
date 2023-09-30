@@ -37,6 +37,24 @@ function Hero() {
       description: "",
       image: "bg-footer-texture",
     },
+    {
+      id: 5,
+      title: "",
+      description: "",
+      image: "bg-footer-texture",
+    },
+    {
+      id: 6,
+      title: "",
+      description: "",
+      image: "bg-footer-texture",
+    },
+    {
+      id: 7,
+      title: "",
+      description: "",
+      image: "bg-footer-texture",
+    },
     
   ];
   return (

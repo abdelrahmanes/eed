@@ -1,11 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer base {
+  .font-outline-2 {
+    -webkit-text-stroke: 2px rgba(255, 242, 252,0.8);
+  }
+  .font-outline-4 {
+    -webkit-text-stroke: 2px rgb(75, 83, 45);
+  }
+}
 body {
   min-height: 100vh !important;
   background-color: #efefef;
   background-repeat: no-repeat;
+}
+.jus{
+  margin-top: 180px;
 }
 .about-us-container {
   max-width: 800px;
@@ -43,4 +53,9 @@ body {
 .bg-footer-image{
   background-image: url(../assets/images/event3.png);
   background-repeat: no-repeat;
+}
+.bg-texture{
+  background-image: url(../assets/images/event.png);
+  background-repeat: no-repeat;
+  background-position: fixed;
 }

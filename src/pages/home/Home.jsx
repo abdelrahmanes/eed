@@ -1,8 +1,16 @@
 import { Flex, Grid, Text } from "@mantine/core";
 import { Fragment } from "react";
 import Slider from "react-slick";
-// import Theme from "../../assets/images/event.png";
-import FooterBg from "../../assets/images/event3.png";
+import Theme from "../../assets/images/event.png";
+import Theme1 from "../../assets/images/gallery1.jpg";
+import Theme2 from "../../assets/images/gallery2.jpg";
+import Theme3 from "../../assets/images/gallery3.jpg";
+import Theme4 from "../../assets/images/gallery4.jpg";
+import Theme5 from "../../assets/images/gallery5.jpg";
+import Theme6 from "../../assets/images/gallery6.jpg";
+import Theme7 from "../../assets/images/gallery7.jpg";
+
+// import FooterBg from "../../assets/images/event3.png";
 import EED from "../../assets/images/eed.png";
 import ieee from "../../assets/images/ieee.png";
 import yp from "../../assets/images/young-professionals.png";
@@ -98,26 +106,26 @@ function Home() {
       ),
     },
   ];
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   autoplay: true,
-  //   autoplaySpeed: 3000,
-  //   arrows: true,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 1,
-  //   pauseOnHover: true,
-  // };
-  // const GalleryPics = [
-  //   { id: 1, image: Theme },
-  //   { id: 2, image: Theme },
-  //   { id: 3, image: Theme },
-  //   { id: 4, image: Theme },
-  //   { id: 5, image: Theme },
-  //   { id: 6, image: Theme },
-  //   { id: 7, image: Theme },
-  // ];
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    pauseOnHover: true,
+  };
+  const GalleryPics = [
+    { id: 1, image: Theme1 },
+    { id: 2, image: Theme2 },
+    { id: 3, image: Theme3 },
+    { id: 4, image: Theme4 },
+    { id: 5, image: Theme5 },
+    { id: 6, image: Theme6 },
+    { id: 7, image: Theme7 },
+  ];
   return (
     <Layout>
       <Hero />
@@ -198,7 +206,7 @@ function Home() {
         </Grid>
       </Flex>
       {/* Gallery Section */}
-      {/* <Flex className="flex-col gap-6 py-10 text-center border-b border-gray-300">
+      <Flex className="flex-col gap-6 py-10 text-center border-b border-gray-300">
         <Text className="mb-10 text-4xl font-bold">Gallery</Text>
         <Slider
           {...settings}
@@ -211,13 +219,13 @@ function Home() {
                 <img
                   src={image.image}
                   alt={image.image}
-                  className="rounded-md"
+                  className="rounded-lg"
                 />
               </div>
             );
           })}
         </Slider>
-      </Flex> */}
+      </Flex>
       {/* venue section */}
       <Flex className="flex-col p-10">
         <Text className="mb-10 text-4xl font-bold text-center ">
