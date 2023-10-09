@@ -25,7 +25,7 @@ function AboutUs() {
             the IEEE Egypt Section, and it is sponsored by a number of companies
             and organizations.
           </p>
-          <img className="max-w-md	mx-auto my-5 rounded-lg" src={AboutImg1} alt="Egyptian Engineering Day (EED)"  />
+          <img className="w-4/5	mx-auto my-5 rounded-lg" src={AboutImg1} alt="Egyptian Engineering Day (EED)"  />
         {/* </div> */}
         <div className="about-us-text">
           <p className="about-us-text">
@@ -40,7 +40,7 @@ function AboutUs() {
             <li>A career fair.</li>
             <li> A social networking event.</li>
           </ul>
-          <img className="max-w-md	mx-auto my-5 rounded-lg" src={AboutImg2} alt="Egyptian Engineering Day (EED)"  />
+          <img className="w-4/5	mx-auto my-5 rounded-lg" src={AboutImg2} alt="Egyptian Engineering Day (EED)"  />
 
         </div>
         <p className="about-us-text">
@@ -82,7 +82,7 @@ function AboutUs() {
             </li>
           </ul>
         </div>
-          <img className="max-w-md	mx-auto my-5 rounded-lg" src={AboutImg3} alt="Egyptian Engineering Day (EED)"  />
+          <img className="w-4/5	mx-auto my-5 rounded-lg" src={AboutImg3} alt="Egyptian Engineering Day (EED)"  />
         <p className="about-us-text">
           If you are an engineer or a student interested in engineering, I
           encourage you to attend Egyptian Engineering Day. It is a great event

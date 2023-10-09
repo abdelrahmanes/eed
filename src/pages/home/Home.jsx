@@ -1,23 +1,15 @@
 import { Flex, Grid, Text } from "@mantine/core";
 import { Fragment } from "react";
 import Slider from "react-slick";
-import Theme from "../../assets/images/event.png";
-import Theme1 from "../../assets/images/gallery1.jpg";
-import Theme2 from "../../assets/images/gallery2.jpg";
-import Theme3 from "../../assets/images/gallery3.jpg";
-import Theme4 from "../../assets/images/gallery4.jpg";
-import Theme5 from "../../assets/images/gallery5.jpg";
-import Theme6 from "../../assets/images/gallery6.jpg";
-import Theme7 from "../../assets/images/gallery7.jpg";
-
-// import FooterBg from "../../assets/images/event3.png";
+// import Theme from "../../assets/images/event.png";
 import EED from "../../assets/images/eed.png";
 import ieee from "../../assets/images/ieee.png";
 import yp from "../../assets/images/young-professionals.png";
 import AutoIncrement from "../../components/AutoIncrement";
 import Layout from "../../layout";
 import Hero from "./sections/Hero";
-function Home() {
+import { NavLink } from "react-router-dom";
+function Home({images}) {
   const gridSections = [
     {
       id: 1,
@@ -117,15 +109,7 @@ function Home() {
     slidesToScroll: 1,
     pauseOnHover: true,
   };
-  const GalleryPics = [
-    { id: 1, image: Theme1 },
-    { id: 2, image: Theme2 },
-    { id: 3, image: Theme3 },
-    { id: 4, image: Theme4 },
-    { id: 5, image: Theme5 },
-    { id: 6, image: Theme6 },
-    { id: 7, image: Theme7 },
-  ];
+  const GalleryPics = images;
   return (
     <Layout>
       <Hero />
@@ -213,14 +197,16 @@ function Home() {
           className="max-w-full overflow-hidden gallery"
           adaptiveHeight
         >
-          {GalleryPics.map((image) => {
+          {GalleryPics.map((image,index) => {
             return (
-              <div key={image.id} className="w-10 mx-6 rounded-md">
+              <div key={index} className="w-10 mx-6 rounded-md">
+                <NavLink to="/gallery">
                 <img
-                  src={image.image}
-                  alt={image.image}
+                  src={image}
+                  alt={index}
                   className="rounded-lg"
                 />
+                  </NavLink>
               </div>
             );
           })}
